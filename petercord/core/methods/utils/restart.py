@@ -8,7 +8,7 @@ import signal
 
 import psutil
 
-from userge import logging
+from petercord import logging
 from ...ext import RawClient
 
 _LOG = logging.getLogger(__name__)
@@ -18,8 +18,8 @@ _LOG_STR = "<<<!  #####  %s  #####  !>>>"
 class Restart(RawClient):  # pylint: disable=missing-class-docstring
     async def restart(self, update_req: bool = False,  # pylint: disable=arguments-differ
                       hard: bool = False) -> None:
-        """ Restart the Abstract USERGE-X"""
-        _LOG.info(_LOG_STR, "Restarting USERGE-X")
+        """ Restart the Abstract PETERCORD"""
+        _LOG.info(_LOG_STR, "Restarting PETERCORD")
         await self.stop()
         if update_req:
             _LOG.info(_LOG_STR, "Installing Requirements...")
@@ -35,5 +35,5 @@ class Restart(RawClient):  # pylint: disable=missing-class-docstring
                     os.close(handler.fd)
             except Exception as c_e:  # pylint: disable=broad-except
                 print(_LOG_STR % c_e)
-            os.execl(sys.executable, sys.executable, '-m', 'userge')  # nosec
+            os.execl(sys.executable, sys.executable, '-m', 'petercord')  # nosec
             sys.exit()
