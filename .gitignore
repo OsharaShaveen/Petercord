@@ -145,7 +145,7 @@ config.env
 *.session
 unknown_errors.txt
 logs/
-userge/plugins/dev/
+petercord/plugins/dev/
 resources/base_profile_pic.jpg
 resources/mdfy_profile_pic.jpg
 resources/ProductSans-BoldItalic.ttf
