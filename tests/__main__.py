@@ -11,5 +11,5 @@ async def _worker() -> None:
     await petercord.send_message(chat_id, f'`{type_} build completed !`')
 
 if __name__ == "__main__":
-    userge.begin(_worker())
+    petercord.begin(_worker())
     print('Petercord test has been finished!')
