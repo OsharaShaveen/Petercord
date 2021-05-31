@@ -110,7 +110,7 @@ async def _init(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                 _U_ID = (await r_c.ubot.get_me()).id
 
 
-async def _raise_func(r_c: Union['_client.Userge', '_client.PetercordBot'],
+async def _raise_func(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                       r_m: RawMessage, text: str) -> None:
     # pylint: disable=protected-access
     if r_m.chat.type in ("private", "bot"):
