@@ -18,7 +18,7 @@ from ... import client as _client  # pylint: disable=unused-import
 _LOG = logging.getLogger(__name__)
 _LOG_STR = "<<<!  :::::  %s  :::::  !>>>"
 
-_CL_TYPE = Union['_client.Petercord', '_client.UsergeBot']
+_CL_TYPE = Union['_client.Petercord', '_client.PetercordBot']
 _CONV_DICT: Dict[Tuple[int, _CL_TYPE], Union[asyncio.Queue, Tuple[int, asyncio.Queue]]] = {}
 
 
