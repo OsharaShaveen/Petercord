@@ -20,7 +20,7 @@ async def progress(
     ud_type: str,
     file_name: str = "",
     c_q: CallbackQuery = None,
-    delay: int = userge.Config.EDIT_SLEEP_TIMEOUT,
+    delay: int = petercord.Config.EDIT_SLEEP_TIMEOUT,
 ) -> None:
     """progress function"""
     if message.process_is_canceled:
