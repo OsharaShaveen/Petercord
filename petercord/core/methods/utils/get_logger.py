@@ -4,7 +4,7 @@ __all__ = ['GetLogger']
 
 import inspect
 
-from userge import logging
+from petercord import logging
 
 _LOG = logging.getLogger(__name__)
 _LOG_STR = "<<<!  #####  %s  #####  !>>>"
