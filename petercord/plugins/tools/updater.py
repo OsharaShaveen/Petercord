@@ -17,7 +17,7 @@ CHANNEL = petercord.getCLogger(__name__)
         "header": "Check Updates or Update PETERCORD",
         "flags": {
             "-pull": "pull updates",
-            "-branch": "Default is -alpha",
+            "-branch": "Default is -petercord",
         },
         "usage": (
             "{tr}update : check updates from default branch\n"
