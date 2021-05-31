@@ -1,0 +1,6 @@
+version: "1"
+rules:
+  - base: petercord
+    upstream: IlhamMansiez:petercord
+    mergeMethod: rebase
+    mergeUnstable: false

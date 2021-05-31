@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  petercord:
+      build:
+        context: https://github.com/IlhamMansiez/petercord.git#petercord
+      depends_on:
+        - mongo
+      restart: on-failure
+      environment:
+          DATABASE_URL: mongodb://root:example@mongo
+      env_file:
+        - config.env
+
+  mongo:
+      image: mongo
+      volumes:
+        - mongo_petercord:/data/db
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: example
+
+volumes:
+  mongo_petercord:

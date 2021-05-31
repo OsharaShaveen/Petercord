@@ -1,0 +1,4 @@
+#!/bin/bash
+#
+# petercord
+python3 tools/genStrSession.py
