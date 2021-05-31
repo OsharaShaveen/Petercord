@@ -87,7 +87,7 @@ def _clear_cht() -> None:
     _TASK_1_START_TO = time.time()
 
 
-async def _init(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _init(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                 r_m: RawMessage) -> None:
     global _U_ID, _B_ID  # pylint: disable=global-statement
     if r_m.from_user and (
@@ -98,7 +98,7 @@ async def _init(r_c: Union['_client.Userge', '_client.UsergeBot'],
     async with _INIT_LK:
         if _U_ID and _B_ID:
             return
-        if isinstance(r_c, _client.Userge):
+        if isinstance(r_c, _client.Petercord):
             if not _U_ID:
                 _U_ID = (await r_c.get_me()).id
             if RawClient.DUAL_MODE and not _B_ID:
@@ -110,7 +110,7 @@ async def _init(r_c: Union['_client.Userge', '_client.UsergeBot'],
                 _U_ID = (await r_c.ubot.get_me()).id
 
 
-async def _raise_func(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _raise_func(r_c: Union['_client.Userge', '_client.PetercordBot'],
                       r_m: RawMessage, text: str) -> None:
     # pylint: disable=protected-access
     if r_m.chat.type in ("private", "bot"):
@@ -119,24 +119,24 @@ async def _raise_func(r_c: Union['_client.Userge', '_client.UsergeBot'],
         await r_c._channel.log(f"{text}\nCaused By: [link]({r_m.link})", "ERROR")
 
 
-async def _is_admin(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _is_admin(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                     r_m: RawMessage) -> bool:
     if r_m.chat.type in ("private", "bot"):
         return False
     if round(time.time() - _TASK_1_START_TO) > 10:
         _clear_cht()
-    if isinstance(r_c, _client.Userge):
+    if isinstance(r_c, _client.Petercord):
         await _update_u_cht(r_m)
         return r_m.chat.id in _U_AD_CHT
     await _update_b_cht(r_m)
     return r_m.chat.id in _B_AD_CHT
 
 
-def _get_chat_member(r_c: Union['_client.Userge', '_client.UsergeBot'],
+def _get_chat_member(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                      r_m: RawMessage) -> Optional[ChatMember]:
     if r_m.chat.type in ("private", "bot"):
         return None
-    if isinstance(r_c, _client.Userge):
+    if isinstance(r_c, _client.Petercord):
         if r_m.chat.id in _U_AD_CHT:
             return _U_AD_CHT[r_m.chat.id]
         return _U_NM_CHT[r_m.chat.id]
@@ -152,7 +152,7 @@ async def _get_lock(key: str) -> asyncio.Lock:
     return _CH_LKS[key]
 
 
-async def _bot_is_present(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _bot_is_present(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                           r_m: RawMessage) -> bool:
     global _TASK_2_START_TO  # pylint: disable=global-statement
     if isinstance(r_c, _client.Userge):
@@ -171,7 +171,7 @@ async def _bot_is_present(r_c: Union['_client.Userge', '_client.UsergeBot'],
     return r_m.chat.id in _B_CMN_CHT
 
 
-async def _both_are_admins(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _both_are_admins(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                            r_m: RawMessage) -> bool:
     if not await _bot_is_present(r_c, r_m):
         return False
@@ -179,7 +179,7 @@ async def _both_are_admins(r_c: Union['_client.Userge', '_client.UsergeBot'],
 
 
 async def _both_have_perm(flt: Union['types.raw.Command', 'types.raw.Filter'],
-                          r_c: Union['_client.Userge', '_client.UsergeBot'],
+                          r_c: Union['_client.Petercord', '_client.PetercordBot'],
                           r_m: RawMessage) -> bool:
     if not await _bot_is_present(r_c, r_m):
         return False
@@ -229,7 +229,7 @@ class RawDecorator(RawClient):
                          flt: Union['types.raw.Command', 'types.raw.Filter'],
                          **kwargs: Union[str, bool]) -> 'RawDecorator._PYRORETTYPE':
         def decorator(func: _PYROFUNC) -> _PYROFUNC:
-            async def template(r_c: Union['_client.Userge', '_client.UsergeBot'],
+            async def template(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                                r_m: RawMessage) -> None:
                 if Config.DISABLED_ALL and r_m.chat.id != Config.LOG_CHANNEL_ID:
                     return
