@@ -18,7 +18,7 @@ _LEVELS = {
 @petercord.on_cmd(
     "logs",
     about={
-        "header": "check USERGE-X logs",
+        "header": "check PETERCORD logs",
         "flags": {
             "-d": "get logs in document",
             "-h": "get heroku logs",
@@ -36,11 +36,11 @@ async def check_logs(message: Message):
         await message.client.send_as_file(
             chat_id=message.chat.id,
             text=logs,
-            filename="userge-heroku.log",
-            caption=f"userge-heroku.log [ {limit} lines ]",
+            filename="petercord-heroku.log",
+            caption=f"petercord-heroku.log [ {limit} lines ]",
         )
     elif "-d" not in message.flags:
-        with open("logs/userge.log", "r") as d_f:
+        with open("logs/petercord.log", "r") as d_f:
             text = d_f.read()
         async with aiohttp.ClientSession() as ses:
             async with ses.post(
