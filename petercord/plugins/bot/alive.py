@@ -35,7 +35,7 @@ async def _init() -> None:
             except Exception as u_rr:
                 LOGGER.debug(u_rr)
             try:
-                if userge.has_bot:
+                if petercord.has_bot:
                     _BOT_CACHED_MEDIA = get_file_id(
                         await userge.bot.get_messages(am_link[0], am_link[1])
                     )
@@ -48,7 +48,7 @@ async def alive_inline(message: Message):
     try:
         if message.client.is_bot:
             await send_alive_message(message)
-        elif userge.has_bot:
+        elif petercord.has_bot:
             try:
                 await send_inline_alive(message)
             except BadRequest:
