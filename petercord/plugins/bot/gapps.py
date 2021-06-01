@@ -66,14 +66,14 @@ if petercord.has_bot:
                 [InlineKeyboardButton(text="⏪  BACK", callback_data="back_gapps")],
             ]
 
-            await userge.bot.edit_inline_text(
+            await petercord.bot.edit_inline_text(
                 callback_query.inline_message_id,
-                "[\u200c](https://i.imgur.com/4iwrOZ7.jpg) **OPEN GAPPS**",
+                "[\u200c](https://imgur.com/gallery/ieSTXbM) **OPEN GAPPS**",
                 reply_markup=InlineKeyboardMarkup(open_g),
             )
         else:
             await callback_query.answer(
-                "Sorry You Can't Access This!\n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙐𝙎𝙀𝙍𝙂𝙀-𝙓",
+                "Sorry You Can't Access This!\n\n DEPLOY PETERCORD",
                 show_alert=True,
             )
 
@@ -155,13 +155,13 @@ if petercord.has_bot:
                 [InlineKeyboardButton("Nik Gapps", callback_data="nik_gapps")],
             ]
 
-            await userge.bot.edit_inline_text(
+            await petercord.bot.edit_inline_text(
                 callback_query.inline_message_id,
                 "[\u200c](https://imgur.com/gallery/ieSTXbM) **LATEST Android 10 arm64 GApps**",
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
         else:
             await callback_query.answer(
-                "Sorry You Can't Access This!\n\n DEPLOY PETERCORD"
+                "Sorry You Can't Access This!\n\n DEPLOY PETERCORD",
                 show_alert=True,
             )
