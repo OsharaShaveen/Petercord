@@ -345,7 +345,7 @@ if petercord.has_bot:
             0,
             "mm",
             lambda x: f"{_CATEGORY.get(x, '🎖')} {x}",
-            userge.manager.get_all_plugins(),
+            petercord.manager.get_all_plugins(),
         )
 
     def default_buttons(cur_pos: str):
@@ -435,7 +435,7 @@ if petercord.has_bot:
 
     def filter_data(cur_pos: str):
         pos_list = cur_pos.split("|")
-        plg = userge.manager.plugins[pos_list[2]]
+        plg = petercord.manager.plugins[pos_list[2]]
         flts = {flt.name: flt for flt in plg.commands + plg.filters}
         flt = flts[pos_list[-1]]
         flt_data = f"""
@@ -450,7 +450,7 @@ if petercord.has_bot:
 {flt.about}
 """
         else:
-            text = f"""⚖ <b><u>Filter Status</u></b> ⚖
+            text = f"""🎖 <b><u>Filter Status</u></b> 🎖
 {flt_data}
 """
         buttons = default_buttons(cur_pos)
@@ -501,7 +501,7 @@ if petercord.has_bot:
                 owner = [
                     [
                         InlineKeyboardButton(
-                            text="Contact", url="https://t.me/deleteduser420"
+                            text="OWNERS", url="https://t.me/@diemmmmmmmmmm"
                         )
                     ]
                 ]
@@ -781,14 +781,14 @@ if petercord.has_bot:
                         )
                 except ValueError:
                     return
-                info = f"📱 **Device**: {r['fullname']}\n"
-                info += f"👤 **Maintainer**: {r['maintainer']['name']}\n\n"
-                recovery = f"🦊 <code>{s['file_name']}</code>\n"
-                recovery += f"📅 {s['date']}\n"
-                recovery += f"ℹ️ **Version:** {s['version']}\n"
-                recovery += f"📌 **Build Type:** {s['build_type']}\n"
-                recovery += f"🔰 **Size:** {s['size_human']}\n\n"
-                recovery += "📍 **Changelog:**\n"
+                info = f"⚡ **Device**: {r['fullname']}\n"
+                info += f"⚡ **Maintainer**: {r['maintainer']['name']}\n\n"
+                recovery = f"🎖 <code>{s['file_name']}</code>\n"
+                recovery += f"🎖 {s['date']}\n"
+                recovery += f"ℹ🎖 **Version:** {s['version']}\n"
+                recovery += f"🎖 **Build Type:** {s['build_type']}\n"
+                recovery += f"🎖 **Size:** {s['size_human']}\n\n"
+                recovery += "🎖 **Changelog:**\n"
                 recovery += f"<code>{s['changelog']}</code>\n\n"
                 msg = info
                 msg += recovery
@@ -854,13 +854,13 @@ if petercord.has_bot:
                         InlineQueryResultArticle(
                             title="No Spoiler Found",
                             input_message_content=InputTextMessageContent(
-                                "No Spoiler Found !\nLet's Add Some 😈"
+                                "No Spoiler Found !\nLet's Add Some ⚡"
                             ),
                             description="See .help spoiler for more info",
                         )
                     )
                 else:
-                    bot_name = (await userge.bot.get_me()).username
+                    bot_name = (await petercord.bot.get_me()).username
                     if len(str_y) == 2:
                         link = f"https://t.me/{bot_name}?start=spoiler_{str_y[1]}"
                         buttons = [
@@ -873,7 +873,7 @@ if petercord.has_bot:
                                     "<b>Click To View The Spoiler !</b>"
                                 ),
                                 description="Click To Send",
-                                thumb_url="https://telegra.ph/file/ee3a6439494463acd1a3a.jpg",
+                                thumb_url="https://telegra.ph/file/2d2a335d26a0d33a1e385.jpg",
                                 reply_markup=InlineKeyboardMarkup(buttons),
                             )
                         )
@@ -902,7 +902,7 @@ if petercord.has_bot:
                                             "<b>Click To View The Spoiler !</b>"
                                         ),
                                         description=f"Created At: {savetime}",
-                                        thumb_url="https://telegra.ph/file/ee3a6439494463acd1a3a.jpg",
+                                        thumb_url="https://telegra.ph/file/2d2a335d26a0d33a1e385.jpg",
                                         reply_markup=InlineKeyboardMarkup(buttons),
                                     )
                                 )
@@ -1028,7 +1028,7 @@ if petercord.has_bot:
                 user_name = str_x[1]
                 msg = str_x[2]
                 try:
-                    receiver = await userge.get_users(user_name)
+                    receiver = await petercord.get_users(user_name)
                 except (BadRequest, IndexError):
                     return
                 secret = os.path.join(Config.CACHE_PATH, "secret.json")
@@ -1057,16 +1057,16 @@ if petercord.has_bot:
                     ujson.dump(view_data, r, indent=4)
                 if str_x[0].lower() == "secret":
                     c_data = f"secret_{key_}"
-                    i_m_content = f"📩 <b>Secret Msg</b> for <b>{r_name}</b>. Only he/she can open it."
+                    i_m_content = f"🎖 <b>Secret Msg</b> for <b>{r_name}</b>. Only he/she can open it."
                     i_l_des = f"Send Secret Message to: {r_name}"
                     title = "Send A Secret Message"
-                    thumb_img = "https://i.imgur.com/c5pZebC.png"
+                    thumb_img = "https://imgur.com/gallery/ieSTXbM"
                 else:
                     c_data = f"troll_{key_}"
-                    i_m_content = f"😈 Only <b>{r_name}</b> can't view this message. UwU"
+                    i_m_content = f"⚡ Only <b>{r_name}</b> can't view this message. UwU"
                     i_l_des = f"Message Hidden from {r_name}"
-                    title = "😈 Troll"
-                    thumb_img = "https://i.imgur.com/0vg5B0A.png"
+                    title = "⚡ Troll"
+                    thumb_img = "Petercord https://imgur.com/gallery/ieSTXbM"
                 buttons = [[InlineKeyboardButton("🔐  SHOW", callback_data=c_data)]]
                 results.append(
                     InlineQueryResultArticle(
@@ -1139,10 +1139,10 @@ if petercord.has_bot:
 
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
-                input_message_content=InputTextMessageContent(" 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
-                url="https://github.com/code-rgb/USERGE-X",
-                description="Userge-X Main Menu",
-                thumb_url="https://i.imgur.com/1xsOo9o.png",
+                input_message_content=InputTextMessageContent(" PETERCORD  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
+                url="https://github.com/IlhamMansiez/Petercord",
+                description="PETERCORD Main Menu",
+                thumb_url="Petercord https://imgur.com/gallery/ieSTXbM",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
             )
             results.append(MAIN_MENU)
@@ -1155,7 +1155,7 @@ if petercord.has_bot:
                 )
         else:
             results.append(REPO_X)
-            owner_name = (await userge.get_me()).first_name
+            owner_name = (await petercord.get_me()).first_name
             await inline_query.answer(
                 results=results,
                 cache_time=1,
