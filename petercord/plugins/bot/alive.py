@@ -144,7 +144,7 @@ async def send_alive_message(message: Message) -> None:
                         refeshed_f_id = get_file_id(
                             await petercord.get_messages(media_[0], media_[1])
                         )
-                        await userge.send_cached_media(
+                        await petercord.send_cached_media(
                             chat_id,
                             file_id=refeshed_f_id,
                             caption=caption,
