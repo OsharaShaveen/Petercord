@@ -767,8 +767,8 @@ if petercord.has_bot:
             if len(string_split) == 2 and (string_split[0] == "ofox"):
                 codename = string_split[1]
                 t = TelegraphPoster(use_api=True)
-                t.create_api_token("Userge-X")
-                photo = "https://i.imgur.com/582uaSk.png"
+                t.create_api_token("PETERCORD")
+                photo = "https://imgur.com/gallery/ieSTXbM"
                 api_host = "https://api.orangefox.download/v2/device/"
                 try:
                     async with get_response.get_session() as session:
