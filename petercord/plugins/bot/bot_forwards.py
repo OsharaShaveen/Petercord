@@ -127,7 +127,7 @@ if petercord.has_bot:
     )
     async def bot_ban_(_, message: Message):
         """ban a user from bot"""
-        start_ban = await userge.bot.send_message(message.chat.id, "`Banning...`")
+        start_ban = await petercord.bot.send_message(message.chat.id, "`Banning...`")
         user_id, reason = extract_content(message)  # Ban by giving ID & Reason
         if not user_id:
             await start_ban.err("User ID Not found", del_in=10)
@@ -135,7 +135,7 @@ if petercord.has_bot:
         if not reason:
             await message.err("Ban Aborted! provide a reason first!")
             return
-        ban_user = await userge.bot.get_user_dict(user_id, attr_dict=True)
+        ban_user = await petercord.bot.get_user_dict(user_id, attr_dict=True)
         if ban_user.id in Config.OWNER_ID:
             await start_ban.edit("I Can't Ban You My Master")
             return
@@ -158,7 +158,7 @@ if petercord.has_bot:
             await start_ban.edit(await ban_from_bot_pm(ban_user, reason), log=__name__)
 
     async def ban_from_bot_pm(ban_user, reason: str, log: str = False) -> None:
-        user_ = await userge.bot.get_user_dict(ban_user, attr_dict=True)
+        user_ = await petercord.bot.get_user_dict(ban_user, attr_dict=True)
         banned_msg = (
             f"<i>**You Have been Banned Forever**" f"</i>\n**Reason** : {reason}"
         )
