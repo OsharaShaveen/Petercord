@@ -27,7 +27,7 @@ _CHAT, _MSG_ID = None, None
 _LOGO_ID = None
 
 
-@petercord.on_cmd("alive", about={
+@petercord.on_cmd("logo", about={
     'header': "This command is just for fun"}, allow_channels=False)
 async def alive(message: Message):
     if not (_CHAT and _MSG_ID):
