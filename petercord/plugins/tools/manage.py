@@ -177,7 +177,7 @@ async def enable(message: Message) -> None:
     names_ = message.filtered_input_str.split(" ")
     type_ = list(message.flags)
     if "p" in type_:
-        found = set(names_).intersection(set(userge.manager.plugins))
+        found = set(names_).intersection(set(petercord.manager.plugins))
         if found:
             out = await petercord.manager.enable_plugins(list(found))
             if out:
@@ -261,7 +261,7 @@ async def disable(message: Message) -> None:
         for t_name in names_:
             if not t_name.startswith(Config.CMD_TRIGGER):
                 names_.append(Config.CMD_TRIGGER + t_name)
-        found = set(names_).intersection(set(userge.manager.commands))
+        found = set(names_).intersection(set(petercord.manager.commands))
         if found:
             out = await petercord.manager.disable_commands(list(found))
             if out:
