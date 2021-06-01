@@ -343,8 +343,8 @@ async def sleep_(message: Message) -> None:
 async def _slp_wrkr(seconds: int) -> None:
     await petercord.stop()
     await asyncio.sleep(seconds)
-    await userge.reload_plugins()
-    await userge.start()
+    await petercord.reload_plugins()
+    await petercord.start()
 
 
 @petercord.on_user_status()
