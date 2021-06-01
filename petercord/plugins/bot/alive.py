@@ -142,7 +142,7 @@ async def send_alive_message(message: Message) -> None:
                 if not message.client.is_bot:
                     try:
                         refeshed_f_id = get_file_id(
-                            await userge.get_messages(media_[0], media_[1])
+                            await petercord.get_messages(media_[0], media_[1])
                         )
                         await userge.send_cached_media(
                             chat_id,
