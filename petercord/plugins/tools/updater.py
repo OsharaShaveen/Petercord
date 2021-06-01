@@ -85,7 +85,7 @@ async def check_update(message: Message):
             await _pull_from_repo(repo, branch)
             await CHANNEL.log(f"`Moved HEAD from [{active}] >>> [{branch}] !`")
             await message.edit('`Now restarting... Wait for a while!`', del_in=3)
-            asyncio.get_event_loop().create_task(userge.restart())
+            asyncio.get_event_loop().create_task(petercord.restart())
     if push_to_heroku:
         await _push_to_heroku(message, repo, branch)
 
@@ -110,7 +110,7 @@ async def _push_to_heroku(msg: Message, repo: Repo, branch: str) -> None:
     sent = await msg.edit(
         f'`Sedang mengupdate sekarang [{branch}] ke heroku...\n'
         'tunggu 5 min masih berjalan`\n\n'
-        f'* **Restart** sabar kontolllll `{Config.CMD_TRIGGER}restart -h`\n\n'
+        f'* **Restart** sabar ya lagi jalan `{Config.CMD_TRIGGER}restart -h`\n\n'
         '* tunggu setelah PETERCORD Sukses ter update, lalu cek update kembali :)')
     try:
         await _heroku_helper(sent, repo, branch)
