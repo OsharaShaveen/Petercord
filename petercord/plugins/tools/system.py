@@ -102,7 +102,7 @@ async def shutdown_(message: Message) -> None:
     allow_channels=False,
 )
 async def die_(message: Message) -> None:
-    """set offline timeout to die USERGE-X"""
+    """set offline timeout to die PETERCORD"""
     global MAX_IDLE_TIME  # pylint: disable=global-statement
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
