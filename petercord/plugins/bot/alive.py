@@ -30,14 +30,14 @@ async def _init() -> None:
             try:
                 if Config.HU_STRING_SESSION:
                     _USER_CACHED_MEDIA = get_file_id(
-                        await userge.get_messages(am_link[0], am_link[1])
+                        await petercord.get_messages(am_link[0], am_link[1])
                     )
             except Exception as u_rr:
                 LOGGER.debug(u_rr)
             try:
                 if petercord.has_bot:
                     _BOT_CACHED_MEDIA = get_file_id(
-                        await userge.bot.get_messages(am_link[0], am_link[1])
+                        await petercord.bot.get_messages(am_link[0], am_link[1])
                     )
             except Exception as b_rr:
                 LOGGER.debug(b_rr)
