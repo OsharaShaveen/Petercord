@@ -35,7 +35,7 @@ async def _init() -> None:
             except Exception as u_rr:
                 LOGGER.debug(u_rr)
             try:
-                if userge.has_bot:
+                if petercord.has_bot:
                     _BOT_CACHED_MEDIA = get_file_id(
                         await petercord.bot.get_messages(am_link[0], am_link[1])
                     )
