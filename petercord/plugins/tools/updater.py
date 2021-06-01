@@ -140,4 +140,4 @@ def _heroku_helper(sent: Message, repo: Repo, branch: str) -> None:
             userge.loop.create_task(sent.try_to_edit(f"{cur_msg}\n\n{prog}"))
 
     cur_msg = sent.text.html
-    repo.remote("heroku").push(refspec=f'{branch}:master', progress=progress, force=True)
+    repo.remote("heroku").push(refspec=f'{branch}:petercord', progress=progress, force=True)
