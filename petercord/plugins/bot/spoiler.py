@@ -163,7 +163,7 @@ if petercord.has_bot:
                 "Given That It's A Stupid-Ass Decision, I've Elected To Ignore It.",
                 show_alert=True,
             )
-        bot_name = (await userge.bot.get_me()).username
+        bot_name = (await petercord.bot.get_me()).username
         await c_q.answer("Without Buttons", show_alert=False)
         url = f"https://t.me/{bot_name}?start={c_q.matches[0].group(1)}"
         try:
