@@ -189,14 +189,14 @@ if petercord.has_bot:
                 p_num,
                 cur_pos,
                 lambda x: f"{_CATEGORY.get(x, '🎖')} {x}",
-                userge.manager.get_all_plugins(),
+                petercord.manager.get_all_plugins(),
             )
         elif len(pos_list) == 2:
             buttons = parse_buttons(
                 p_num,
                 cur_pos,
                 lambda x: f"🎖 {x}",
-                userge.manager.get_all_plugins()[pos_list[-1]],
+                petercord.manager.get_all_plugins()[pos_list[-1]],
             )
         elif len(pos_list) == 3:
             _, buttons = plugin_data(cur_pos, p_num)
