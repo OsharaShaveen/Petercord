@@ -14,7 +14,7 @@ CHANNEL = petercord.getCLogger(__name__)
 
 
 @petercord.on_cmd("update", about={
-    'header': "Check Updates or Update KampangUsergay",
+    'header': "Check Updates or Update PETERCORD",
     'flags': {
         '-pull': "pull updates",
         '-push': "push updates to heroku",
