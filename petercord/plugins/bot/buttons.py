@@ -17,8 +17,8 @@ from .bot_pm import get_bot_info
 BTN_REGEX = comp_regex(
     r"\[([^\[]+?)](\[buttonurl:(?:/{0,2})(.+?)(:same)?]|\(buttonurl:(?:/{0,2})(.+?)(:same)?\))"
 )
-PATH = "./userge/xcache/inline_db.json"
-CHANNEL = userge.getCLogger(__name__)
+PATH = "./petercord/xcache/inline_db.json"
+CHANNEL = petercord.getCLogger(__name__)
 
 
 class Inline_DB:
