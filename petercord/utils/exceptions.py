@@ -9,4 +9,4 @@ class ProcessCanceled(Exception):
 
 
 class PetercordBotNotFound(Exception):
-    """raise if userge bot not found"""
+    """raise if petercord bot not found"""
