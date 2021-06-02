@@ -42,7 +42,7 @@ async def _init() -> None:
 
 @petercord.on_cmd(
     "helpme",
-    about={"header": "Guide to use Petercord commands"},
+    about={"header": "Guide to use petercord commands"},
     allow_channels=False,
 )
 async def helpme(
@@ -215,7 +215,7 @@ if petercord.has_bot:
         )
 
     @petercord.bot.on_callback_query(filters=filters.regex(pattern=r"^mm$"))
-    @petercord
+    @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
             "**⚙️ MENU HELP ⚙️\n\n⚡Petercord Userbot⚡**",
