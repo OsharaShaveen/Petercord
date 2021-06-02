@@ -61,13 +61,13 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
     markup = None
     output = f"""**🎖🎖𝐏𝐄𝐓𝐄𝐑𝐂𝐎𝐑𝐃🎖🎖**\n
 **╭━─━─━─━─≪✠≫─━─━─━─━╮**\n
-**❍ ⏱️ • uptime** : `{petercord.uptime}`
-**❍ 🎖 • version** : `{get_version()}`
-**❍ 🎖 • mode** : `{_get_mode()}`
+**❍ ⏱️ • 𝗨𝗣𝗧𝗜𝗠𝗘** : `{petercord.uptime}`
+**❍ 🎖 • 𝗩𝗘𝗥𝗦𝗜𝗢𝗡** : `{get_version()}`
+**❍ 🎖 • 𝗠𝗢𝗗𝗘** : `{_get_mode()}`
 
-**❍ 🎖 • Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
-**❍ 🎖 • Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
-**❍ ❌ • Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
+**❍ 🎖 • 𝗦𝗨𝗗𝗢**: `{_parse_arg(Config.SUDO_ENABLED)}`
+**❍ 🎖 • 𝗣𝗠-𝗚𝗨𝗔𝗥𝗗**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
+**❍ ❌ • 𝗔𝗡𝗧𝗜-𝗦𝗣𝗔𝗠**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
     if Config.HEROKU_APP:
         output += f"\n❍ **🎖 • Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
     output += f"""
