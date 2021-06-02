@@ -319,7 +319,7 @@ async def append_peer_user(user_ids: List, limit: int = None) -> Optional[List]:
 
 
 async def vc_member(m: Message, gc: InputGroupCall) -> bool:
-    gc_info = await userge.send(GetGroupCall(call=gc))
+    gc_info = await petercord.send(GetGroupCall(call=gc))
     if p := getattr(gc_info, "participants", None):
         for x in p:
             if x.peer.user_id == m.from_user.id:
