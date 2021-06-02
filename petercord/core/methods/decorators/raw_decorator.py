@@ -155,7 +155,7 @@ async def _get_lock(key: str) -> asyncio.Lock:
 async def _bot_is_present(r_c: Union['_client.Petercord', '_client.PetercordBot'],
                           r_m: RawMessage) -> bool:
     global _TASK_2_START_TO  # pylint: disable=global-statement
-    if isinstance(r_c, _client.Userge):
+    if isinstance(r_c, _client.Petercord):
         if round(time.time() - _TASK_2_START_TO) > 10:
             try:
                 chats = await r_c.get_common_chats(_B_ID)
