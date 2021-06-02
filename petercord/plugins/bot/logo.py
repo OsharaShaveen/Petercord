@@ -61,20 +61,20 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
     markup = None
     output = f"""**🔹PETERCORD 🔹 SIAP MELUNCUR 🔹🎖🔹!..**\n
 **╭━─━─━─━─≪✠≫─━─━─━─━╮**\n
-**🔹 🎖 • uptime** : `{petercord.uptime}`
-**🔹 🎖 • version** : `{get_version()}`
-**🔹 🎖 • mode** : `{_get_mode()}`
+**🔹 🎖 • 𝗨𝗣𝗧𝗜𝗠𝗘** : `{petercord.uptime}`
+**🔹 🎖 • 𝐕𝐄𝐑𝐒𝐈𝐎𝐍** : `{get_version()}`
+**🔹 🎖 • 𝗠𝗢𝗗𝗘** : `{_get_mode()}`
 
-**🔹 🎖 • Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
-**🔹 🎖 • Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
-**🔹 🎖 • Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
+**🔹 🎖 • 𝗦𝗨𝗗𝗢**: `{_parse_arg(Config.SUDO_ENABLED)}`
+**🔹 🎖 • 𝗣𝗠-𝗚𝗨𝗔𝗥𝗗**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
+**🔹 🎖 • 𝗔𝗡𝗧𝗜-𝗦𝗣𝗔𝗠**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
     if Config.HEROKU_APP:
         output += f"\n❍ **⚡ • Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
     output += f"""
-**🔹 ⚡ • Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
+**🔹 ⚡ • 𝗨𝗡𝗢𝗙𝗙𝗜𝗖𝗜𝗔𝗟**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
 
-  🎖**__Python__**: `{versions.__python_version__}`
-  🎖**__Pyrogram__**: `{versions.__pyro_version__}`
+  🎖**__𝗣𝗬𝗧𝗛𝗢𝗡__**: `{versions.__python_version__}`
+  🎖**__𝗣𝘆𝗿𝗼𝗴𝗿𝗮𝗺__**: `{versions.__pyro_version__}`
 \n**╰━─━─━─━─━─━─━─━─━─━╯**"""
     if not message.client.is_bot:
         output += f"""\n
