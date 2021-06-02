@@ -73,7 +73,7 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
                 out_str = f"<i>No Module or Command Found for</i>: <code>{message.input_str}</code>"
     await message.edit(out_str, del_in=0, parse_mode='html', disable_web_page_preview=True)
 
-if alpha.has_bot:
+if petercord.has_bot:
     def check_owner(func):
         async def wrapper(_, c_q: CallbackQuery):
             if c_q.from_user and c_q.from_user.id in Config.OWNER_ID:
@@ -85,7 +85,7 @@ if alpha.has_bot:
                     await c_q.answer("Sorry, I Don't Have Permissions to edit this 😔",
                                      show_alert=True)
             else:
-                user_dict = await alpha.bot.get_user_dict(Config.OWNER_ID[0])
+                user_dict = await petercord.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
                     f"Hanya {user_dict['flname']} Dapat mengakses ini...! Buat Sendiri Di @TeamSquadUserbotSupport 🤘",
                     show_alert=True)
@@ -102,11 +102,11 @@ if alpha.has_bot:
         if len(pos_list) == 1:
             buttons = parse_buttons(p_num, cur_pos,
                                     lambda x: f"{_CATEGORY.get(x, '📂')} {x}",
-                                    alpha.manager.get_all_plugins())
+                                    petercord.manager.get_all_plugins())
         elif len(pos_list) == 2:
             buttons = parse_buttons(p_num, cur_pos,
                                     lambda x: f"🗂️ {x}",
-                                    alpha.manager.get_all_plugins()[pos_list[-1]])
+                                    petercord.manager.get_all_plugins()[pos_list[-1]])
         elif len(pos_list) == 3:
             _, buttons = plugin_data(cur_pos, p_num)
         await callback_query.edit_message_reply_markup(
