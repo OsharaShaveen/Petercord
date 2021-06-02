@@ -7,7 +7,7 @@ from petercord import Message, petercord
 from petercord import Config, ALIVE_LOGO
 
 
-@petercord.on_cmd("simbol", about={"header": "alive"})
+@petercord.on_cmd("simbol$", about={"header": "alive"})
 async def alive_(message: Message):
     """alive"""
     animation_interval = 0.0
