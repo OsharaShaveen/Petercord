@@ -214,7 +214,7 @@ if petercord.has_bot:
             text, reply_markup=InlineKeyboardMarkup(buttons)
         )
 
-    @alpha.bot.on_callback_query(filters=filters.regex(pattern=r"^mm$"))
+    @petercord.bot.on_callback_query(filters=filters.regex(pattern=r"^mm$"))
     @petercord
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
