@@ -298,10 +298,10 @@ class RawDecorator(RawClient):
                             cond = cond and await _both_have_perm(flt, r_c, r_m)
                         if cond:
                             if Config.USE_USER_FOR_CLIENT_CHECKS:
-                                if isinstance(r_c, _client.UsergeBot):
+                                if isinstance(r_c, _client.PetercordBot):
                                     return
                             elif await _bot_is_present(r_c, r_m) and isinstance(
-                                    r_c, _client.Userge):
+                                    r_c, _client.Petercord):
                                 return
                 if flt.check_downpath:
                     if not os.path.isdir(Config.DOWN_PATH):
