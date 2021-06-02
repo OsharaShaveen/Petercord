@@ -4,7 +4,7 @@ from collections import deque
 
 from petercord import Message, petercord
 
-from petercord import ALIVE_LOGO
+from petercord import Config, ALIVE_LOGO
 
 
 @petercord.on_cmd("simbol", about={"header": "alive"})
