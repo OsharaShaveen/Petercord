@@ -308,7 +308,7 @@ if petercord.has_bot:
             0,
             "mm",
             lambda x: f"{_CATEGORY.get(x, '📁')} {x}",
-            alpha.manager.get_all_plugins(),
+            petercord.manager.get_all_plugins(),
         )
 
     def default_buttons(cur_pos: str):
