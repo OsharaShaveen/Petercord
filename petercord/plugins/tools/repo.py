@@ -1,6 +1,6 @@
 # petercord
 
-from petercord import petercord, Message, Config, versions, get_version
+from petercord import petercord, Message, Config, versions
 
 
 @petercord.on_cmd("repo", about={'header': "get repo link and details"})
@@ -9,7 +9,7 @@ async def see_repo(message: Message):
     output = f"""
 **HI**, __WELCOME PETERCORD USERBOT__ 🎖 **PETERCORD** 🎖
     __DATA PETERCORD__
-• **PETERCORD VERSION** : `{get_version()}`
+• **PETERCORD VERSION** : `⚡2021-ILHAM-MANSIEZ⚡`
 • **LICENSE** : {versions.__license__}
 • **COPYRIGHT** : {versions.__copyright__}
 • **REPO** : [PETERCORD]({Config.UPSTREAM_REPO})
