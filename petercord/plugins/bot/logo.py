@@ -84,10 +84,10 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
         copy_ = "https://github.com/IlhamMansiez/Petercord/blob/petercord/LICENSE"
         markup = InlineKeyboardMarkup([
             [
-                InlineKeyboardButton(text="🎖 Github", url="https://github.com/IlhamMansiez"),
-                InlineKeyboardButton(text="🎖 Repo", url=Config.UPSTREAM_REPO)
+                InlineKeyboardButton(text="🎖 𝗚𝗜𝗧𝗛𝗨𝗕", url="https://github.com/IlhamMansiez"),
+                InlineKeyboardButton(text="🎖 𝐑𝐄𝐏𝐎", url=Config.UPSTREAM_REPO)
             ],
-            [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
+            [InlineKeyboardButton(text="🎖 𝗚𝗡𝗨 𝗚𝗣𝗟 𝘃3.0", url=copy_)]
         ])
     return output, markup
 
