@@ -8,7 +8,7 @@ class BotChat:
     def __init__(self, dbname: str, clean_in: int = 15):
         if not dbname.endswith(".csv"):
             dbname += ".csv"
-        self.db = f"userge/xcache/{dbname}"
+        self.db = f"petercord/xcache/{dbname}"
         self.expire = clean_in
         try:
             self.clean()
