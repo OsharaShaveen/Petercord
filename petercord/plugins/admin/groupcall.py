@@ -168,7 +168,7 @@ async def inv_vc_(message: Message):
 async def vcinfo_(message: Message):
     if not (group_call := (await get_group_call(message))):
         return
-    gc_data = await userge.send(GetGroupCall(call=group_call))
+    gc_data = await petercord.send(GetGroupCall(call=group_call))
     gc_info = {}
     gc_info["ℹ️ INFO"] = clean_obj(gc_data.call, convert=True)
     if len(gc_data.users) != 0:
@@ -260,7 +260,7 @@ async def manage_vcmember(message: Message, to_mute: bool):
     elif message.reply_to_message:
         peer_ = message.reply_to_message.from_user.id
     if peer_ and (user_ := (await append_peer_user([peer_]))):
-        await userge.send(
+        await petercord.send(
             EditGroupCallParticipant(
                 call=group_call, participant=user_[0], muted=to_mute
             )
@@ -276,13 +276,13 @@ async def manage_vcmember(message: Message, to_mute: bool):
 async def get_group_call(
     message: Message, err_msg: str = ""
 ) -> Optional[InputGroupCall]:
-    chat_peer = await userge.resolve_peer(message.chat.id)
+    chat_peer = await petercord.resolve_peer(message.chat.id)
     if isinstance(chat_peer, (InputPeerChannel, InputPeerChat)):
         if isinstance(chat_peer, InputPeerChannel):
-            full_chat = (await userge.send(GetFullChannel(channel=chat_peer))).full_chat
+            full_chat = (await petercord.send(GetFullChannel(channel=chat_peer))).full_chat
         elif isinstance(chat_peer, InputPeerChat):
             full_chat = (
-                await userge.send(GetFullChat(chat_id=chat_peer.chat_id))
+                await petercord.send(GetFullChat(chat_id=chat_peer.chat_id))
             ).full_chat
         if full_chat is not None:
             return full_chat.call
@@ -294,7 +294,7 @@ async def get_peer_list(message: Message, limit: int = 10) -> Optional[List]:
     chat_id = message.chat.id
     user_ids = [
         member.user.id
-        async for member in userge.iter_chat_members(chat_id, limit=100)
+        async for member in petercord.iter_chat_members(chat_id, limit=100)
         if not (
             member.user.is_bot
             or member.user.is_deleted
@@ -308,7 +308,7 @@ async def append_peer_user(user_ids: List, limit: int = None) -> Optional[List]:
     peer_list = []
     for uid in user_ids:
         try:
-            peer_ = await userge.resolve_peer(uid)
+            peer_ = await petercord.resolve_peer(uid)
         except PeerIdInvalid:
             pass
         else:
