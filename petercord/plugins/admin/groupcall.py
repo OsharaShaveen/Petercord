@@ -65,7 +65,7 @@ def check_vc_perm(func):
 async def start_vc_(message: Message):
     """Start group call"""
     chat_id = message.chat.id
-    await userge.send(
+    await petercord.send(
         CreateGroupCall(
             peer=(await petercord.resolve_peer(chat_id)),
             random_id=randint(10000, 999999999),
