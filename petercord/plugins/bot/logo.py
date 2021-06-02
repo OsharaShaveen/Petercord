@@ -71,7 +71,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
     if Config.HEROKU_APP:
         output += f"\n❍ **⚡ • Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
     output += f"""
-**❍ 🚀 • Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
+**🔹 ⚡ • Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
 
   🎖**__Python__**: `{versions.__python_version__}`
   🎖**__Pyrogram__**: `{versions.__pyro_version__}`
