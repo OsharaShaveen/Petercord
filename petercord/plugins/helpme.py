@@ -1,22 +1,6 @@
 #Petercord
 
-Skip to content
-wonkru-bot
-/
-Ma-Version-Of-X
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Ma-Version-Of-X/userge/plugins/help.py
-@wonkru-bot
-wonkru-bot 😫😓
- 10 contributors
-1164 lines (1116 sloc)  48.8 KB
+
 import os
 import re
 from math import ceil
