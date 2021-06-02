@@ -50,7 +50,7 @@ async def alive(message: Message):
 
 
 def _get_mode() -> str:
-    if alpha.dual_mode:
+    if petercord.dual_mode:
         return "Dual"
     if Config.BOT_TOKEN:
         return "Bot"
