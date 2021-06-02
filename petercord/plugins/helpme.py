@@ -377,7 +377,7 @@ if petercord.has_bot:
 
     def category_data(cur_pos: str):
         pos_list = cur_pos.split("|")
-        plugins = userge.manager.get_all_plugins()[pos_list[1]]
+        plugins = petercord.manager.get_all_plugins()[pos_list[1]]
         text = (
             f"**(`{len(plugins)}`) Plugin(s) Under : "
             f"`{_CATEGORY.get(pos_list[1], '📁')} {pos_list[1]}`  Category**"
