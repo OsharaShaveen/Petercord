@@ -90,7 +90,7 @@ async def _init() -> None:
 
 
 @petercord.on_cmd(
-    "help", about={"header": "Guide to use 𝗣𝗘𝗧𝗘𝗥𝗖𝗢𝗥𝗗 commands"}, allow_channels=False
+    "helpme", about={"header": "Guide to use 𝗣𝗘𝗧𝗘𝗥𝗖𝗢𝗥𝗗 commands"}, allow_channels=False
 )
 async def helpme(message: Message) -> None:
     plugins = petercord.manager.enabled_plugins
