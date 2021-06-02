@@ -13,7 +13,7 @@ from pyrogram.errors import (
     FileIdInvalid, FileReferenceEmpty, BadRequest, ChannelInvalid, MediaEmpty
 )
 
-from petercord.core.ext import RawClient
+from petercord.core.ext import pool
 from petercord.utils import get_file_id_of_media
 from petercord import petercord, Message, Config, versions, get_version, logging
 
@@ -22,7 +22,7 @@ _LOG = logging.getLogger(__name__)
 _IS_TELEGRAPH = False
 _IS_STICKER = False
 
-_DEFAULT = "https://t.me/diemmmmmmmmmm"
+_DEFAULT = "https://t.me/c/1321271170/626"
 _CHAT, _MSG_ID = None, None
 _LOGO_ID = None
 
@@ -59,33 +59,33 @@ def _get_mode() -> str:
 
 def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKeyboardMarkup]]:
     markup = None
-    output = f"""**🎖🎖𝐏𝐄𝐓𝐄𝐑𝐂𝐎𝐑𝐃🎖🎖**\n
+    output = f"""**🔹PETERCORD 🔹 SIAP MELUNCUR 🔹🎖🔹!..**\n
 **╭━─━─━─━─≪✠≫─━─━─━─━╮**\n
-**❍ ⏱️ • 𝗨𝗣𝗧𝗜𝗠𝗘** : `{petercord.uptime}`
-**❍ 🎖 • 𝗩𝗘𝗥𝗦𝗜𝗢𝗡** : `{get_version()}`
-**❍ 🎖 • 𝗠𝗢𝗗𝗘** : `{_get_mode()}`
+**🔹 🎖 • uptime** : `{petercord.uptime}`
+**🔹 🎖 • version** : `{get_version()}`
+**🔹 🎖 • mode** : `{_get_mode()}`
 
-**❍ 🎖 • 𝗦𝗨𝗗𝗢**: `{_parse_arg(Config.SUDO_ENABLED)}`
-**❍ 🎖 • 𝗣𝗠-𝗚𝗨𝗔𝗥𝗗**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
-**❍ ❌ • 𝗔𝗡𝗧𝗜-𝗦𝗣𝗔𝗠**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
+**🔹 🎖 • Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
+**🔹 🎖 • Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
+**🔹 🎖 • Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
     if Config.HEROKU_APP:
-        output += f"\n❍ **🎖 • Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
+        output += f"\n❍ **⚡ • Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
     output += f"""
-**❍ 🎖 • Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
+**❍ 🚀 • Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
 
   🎖**__Python__**: `{versions.__python_version__}`
   🎖**__Pyrogram__**: `{versions.__pyro_version__}`
 \n**╰━─━─━─━─━─━─━─━─━─━╯**"""
     if not message.client.is_bot:
         output += f"""\n
-🎖 **{versions.__license__}** | ⚡ **{versions.__copyright__}** | 🎖 **[𝗥𝗘𝗣𝗢]({Config.UPSTREAM_REPO})**
+🎖 **{versions.__license__}** | 🎖 **{versions.__copyright__}** | 🎖 **[Repo]({Config.UPSTREAM_REPO})**
 """
     else:
         copy_ = "https://github.com/IlhamMansiez/Petercord/blob/petercord/LICENSE"
         markup = InlineKeyboardMarkup([
             [
-                InlineKeyboardButton(text="🎖 𝗚𝗜𝗧𝗛𝗨𝗕", url="https://github.com/IlhamMansiez"),
-                InlineKeyboardButton(text="🎖 𝗥𝗘𝗣𝗢", url=Config.UPSTREAM_REPO)
+                InlineKeyboardButton(text="🎖 Github", url="https://github.com/IlhamMansiez"),
+                InlineKeyboardButton(text="🎖 Repo", url=Config.UPSTREAM_REPO)
             ],
             [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
         ])
