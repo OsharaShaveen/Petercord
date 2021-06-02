@@ -27,7 +27,8 @@ logbot.reply_last_msg("Setting Configs ...")
 
 class Config:
     """Configs to setup Petercord"""
-
+    ALIVE_LOGO = os.environ.get(
+        "ALIVE_LOGO") or "https://telegra.ph/file/dadd789a1b1b677d0f325.jpg"
     API_ID = int(os.environ.get("API_ID"))
     API_HASH = os.environ.get("API_HASH")
     WORKERS = int(os.environ.get("WORKERS")) or os.cpu_count() + 4
