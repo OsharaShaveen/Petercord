@@ -50,7 +50,7 @@ async def alive(message: Message):
 
 
 def _get_mode() -> str:
-    if RawClient.DUAL_MODE:
+    if alpha.dual_mode:
         return "Dual"
     if Config.BOT_TOKEN:
         return "Bot"
@@ -59,41 +59,41 @@ def _get_mode() -> str:
 
 def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKeyboardMarkup]]:
     markup = None
-    output = f"""🎖🎖PETERCORD ALIVE🎖🎖!..\n
-▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱\n
-**⌚ uptime** : `{petercord.uptime}`
-**💻 version** : `{get_version()}`
-**🎖 Mode** : `{_get_mode().upper()}`
-\n╭▻►▻►▻►▻►▻►◄◅◄◅◄◅◄◅╮
-[• **🎖 Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
-[• **⚡ Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
-[• **🚫 Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
+    output = f"""**🎖🎖𝐏𝐄𝐓𝐄𝐑𝐂𝐎𝐑𝐃🎖🎖**\n
+**╭━─━─━─━─≪✠≫─━─━─━─━╮**\n
+**❍ ⏱️ • uptime** : `{petercord.uptime}`
+**❍ 🎖 • version** : `{get_version()}`
+**❍ 🎖 • mode** : `{_get_mode()}`
+
+**❍ 🎖 • Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
+**❍ 🎖 • Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
+**❍ ❌ • Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
     if Config.HEROKU_APP:
-        output += f"\n[• **🧿 Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
+        output += f"\n❍ **🎖 • Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
     output += f"""
-[• **🎖 Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
-╰▻►▻►▻►▻►▻►◄◅◄◅◄◅◄◅╯\n
-  🐍**__Python__**: `{versions.__python_version__}`
-  💻**__Pyrogram__**: `{versions.__pyro_version__}`
-\n▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱"""
+**❍ 🎖 • Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
+
+  🎖**__Python__**: `{versions.__python_version__}`
+  🎖**__Pyrogram__**: `{versions.__pyro_version__}`
+\n**╰━─━─━─━─━─━─━─━─━─━╯**"""
     if not message.client.is_bot:
         output += f"""\n
-🎖 **{versions.__license__}** | 🎖 **{versions.__copyright__}** | 🎖 **[Repo]({Config.UPSTREAM_REPO})**
+🎖 **{versions.__license__}** | ⚡ **{versions.__copyright__}** | 🎖 **[𝗥𝗘𝗣𝗢]({Config.UPSTREAM_REPO})**
 """
     else:
-        copy_ = "https://github.com/IlhamMansiez/PetercordPlugins/blob/master/LICENSE"
+        copy_ = "https://github.com/IlhamMansiez/Petercord/blob/petercord/LICENSE"
         markup = InlineKeyboardMarkup([
             [
-                InlineKeyboardButton(text="🎖 PETERCORD", url="https://github.com/IlhamMansiez"),
-                InlineKeyboardButton(text="🎖 Repo", url=Config.UPSTREAM_REPO)
+                InlineKeyboardButton(text="🎖 𝗚𝗜𝗧𝗛𝗨𝗕", url="https://github.com/IlhamMansiez"),
+                InlineKeyboardButton(text="🎖 𝗥𝗘𝗣𝗢", url=Config.UPSTREAM_REPO)
             ],
             [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
         ])
-    return (output, markup)
+    return output, markup
 
 
 def _parse_arg(arg: bool) -> str:
-    return "ON✅" if arg else "OFF❌"
+    return "enabled" if arg else "disabled"
 
 
 async def _send_alive(message: Message,
@@ -176,7 +176,7 @@ def _set_data(errored: bool = False) -> None:
 async def _send_telegraph(msg: Message, text: str, reply_markup: Optional[InlineKeyboardMarkup]):
     path = os.path.join(Config.DOWN_PATH, os.path.split(Config.ALIVE_MEDIA)[1])
     if not os.path.exists(path):
-        wget.download(Config.ALIVE_MEDIA, path)
+        await pool.run_in_thread(wget.download)(Config.ALIVE_MEDIA, path)
     if path.lower().endswith((".jpg", ".jpeg", ".png", ".bmp")):
         await msg.client.send_photo(
             chat_id=msg.chat.id,
