@@ -201,13 +201,13 @@ if petercord.has_bot:
         pos_list = cur_pos.split("|")
         if len(pos_list) == 4:
             if is_filter(pos_list[-1]):
-                flt = alpha.manager.filters[pos_list[-1]]
+                flt = petercord.manager.filters[pos_list[-1]]
             else:
-                flt = alpha.manager.commands[pos_list[-1]]
+                flt = petercord.manager.commands[pos_list[-1]]
             await getattr(flt, task)()
             text, buttons = filter_data(cur_pos)
         else:
-            plg = alpha.manager.plugins[pos_list[-1]]
+            plg = petercord.manager.plugins[pos_list[-1]]
             await getattr(plg, task)()
             text, buttons = plugin_data(cur_pos)
         await callback_query.edit_message_text(
