@@ -89,9 +89,7 @@ async def _init() -> None:
         Config.USE_USER_FOR_CLIENT_CHECKS = bool(data["is_user"])
 
 
-@petercord.on_cmd(
-    "helpme", about={"header": "Guide to use 𝗣𝗘𝗧𝗘𝗥𝗖𝗢𝗥𝗗 commands"}, allow_channels=False
-)
+@petercord.on_cmd( "help", about={"header": "Guide to use 𝗣𝗘𝗧𝗘𝗥𝗖𝗢𝗥𝗗 commands"}, allow_channels=False)
 async def helpme(message: Message) -> None:
     plugins = petercord.manager.enabled_plugins
     if not message.input_str:
