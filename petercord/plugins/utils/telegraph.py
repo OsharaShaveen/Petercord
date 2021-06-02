@@ -60,7 +60,7 @@ async def telegraph_(message: Message):
                 text = content
                 header = "Pasted content by @diemmmmmmmmmm"
         t_url = await pool.run_in_thread(post_to_telegraph)(header, text)
-        jv_text = f"**[Here Your Telegra.ph Link!]({t_url})**"
+        jv_text = f"**[DATA TELEGRAPHMU ..KLIK]({t_url})**"
         await message.edit(text=jv_text, disable_web_page_preview=True)
         return
     dl_loc = await message.client.download_media(
@@ -80,6 +80,6 @@ async def telegraph_(message: Message):
     except Exception as t_e:
         await message.err(t_e)
     else:
-        await message.edit(f"**[Here Your Telegra.ph Link!](https://telegra.ph{response[0]})**")
+        await message.edit(f"**[DATA TELEGRAPHMU ..KLIK](https://telegra.ph{response[0]})**")
     finally:
         os.remove(dl_loc)
