@@ -191,7 +191,7 @@ async def set_custom_nopm_message(message: Message):
     about={
         "header": "Sets the block message",
         "description": "You can change the default blockPm message "
-        "which userge gives on un-invited PMs",
+        "which pmpermit.py gives on un-invited PMs",
         "flags": {"-r": "reset to default"},
         "options": {
             "{fname}": "add first name",
@@ -267,7 +267,7 @@ async def uninvitedPmHandler(message: Message):
             del pmCounter[message.from_user.id]
             # await message.reply(blocked_message)
             report_img_ = await reported_user_image(message.from_user.first_name)
-            await userge.send_photo(
+            await petercord.send_photo(
                 message.chat.id, report_img_, caption=blocked_message
             )
             await message.from_user.block()
