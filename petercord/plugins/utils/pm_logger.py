@@ -72,7 +72,7 @@ async def pm_logger(_, message: Message):
     pm_logger_msg = "<b><i>ID</i></b> : <code>{}</code>\n👤 {} sent"
     new_pm_logger = pm_logger_msg + " a new message."
     if len(PM_LOGGER_CACHE) == 0:  # First Pm
-        logger_msg_count = await userge.send_message(
+        logger_msg_count = await petercord.send_message(
             Config.PM_LOG_GROUP_ID,
             new_pm_logger.format(u_id, mention_html(u_id, u_name)),
             disable_notification=True,
