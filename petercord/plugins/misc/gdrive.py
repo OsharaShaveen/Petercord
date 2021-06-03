@@ -48,7 +48,7 @@ _GDRIVE_ID = re.compile(
     r"https://drive.google.com/[\w?.&=/]+([-\w]{33}|(?<=[/=])0(?:A[-\w]{17}|B[-\w]{26}))"
 )
 
-_LOG = userge.getLogger(__name__)
+_LOG = petercord.getLogger(__name__)
 _SAVED_SETTINGS = get_collection("CONFIGS")
 
 
