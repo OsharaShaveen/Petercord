@@ -62,20 +62,20 @@ SAVED_SETTINGS = get_collection("CONFIGS")
 REPO_X = InlineQueryResultArticle(
     title="Repo",
     input_message_content=InputTextMessageContent("**Here's how to setup USERGE-X** "),
-    url="https://github.com/code-rgb/USERGE-X",
+    url="https://github.com/IlhamMansiez/Petercord",
     description="Setup Your Own",
-    thumb_url="https://i.imgur.com/1xsOo9o.png",
+    thumb_url="https://imgur.com/gallery/ieSTXbM",
     reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "🔥  🇱 🇪 🇴𝚉 ᴬˢˢᴵˢᵀᴬᴺᵀ Repo", url="https://github.com/wonkru-bot/Ma-Version-Of-X"
+                    "🔥 REPO", url="https://github.com/IlhamMansiez/Petercord"
                 ),
                 InlineKeyboardButton(
-                    "🚀 Deploy  🇱 🇪 🇴𝚉 ᴬˢˢᴵˢᵀᴬᴺᵀ",
+                    "🚀 Deploy Petercord",
                     url=(
                         "https://heroku.com/deploy?template="
-                        "https://github.com/wonkru-bot/Ma-Version-Of-X"
+                        "https://github.com/IlhamMansiez/deploy"
                     ),
                 ),
             ]
@@ -215,7 +215,7 @@ if petercord.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = "  🇱 🇪 🇴𝚉 ᴬˢˢᴵˢᵀᴬᴺᵀ 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
+            text = " 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -267,7 +267,7 @@ if petercord.has_bot:
     @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
-            "  🇱 🇪 🇴𝚉 ᴬˢˢᴵˢᵀᴬᴺᵀ  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
+            "  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
             reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
         )
 
@@ -508,8 +508,8 @@ if petercord.has_bot:
                 ]
                 results.append(
                     InlineQueryResultPhoto(
-                        photo_url="https://coverfiles.alphacoders.com/123/123388.png",
-                        caption="Hey I solved ** 🇱 🇪 🇴𝚉 ᴬˢˢᴵˢᵀᴬᴺᵀ ░ Σrr♢r**",
+                        photo_url="https://imgur.com/gallery/ieSTXbM",
+                        caption="Hey I solved ** Petercord**",
                         reply_markup=InlineKeyboardMarkup(owner),
                     )
                 )
@@ -554,7 +554,7 @@ if petercord.has_bot:
                             input_message_content=InputTextMessageContent(
                                 "**Error Code: Status != 200**"
                             ),
-                            thumb_url="https://i.imgur.com/7a7aPVa.png",
+                            thumb_url="https://imgur.com/gallery/ieSTXbM",
                         )
                     )
                 else:
@@ -569,7 +569,7 @@ if petercord.has_bot:
                                     f"**Error Code: {code}**\n`{code_message}`"
                                 ),
                                 description="Enter A Valid Subreddit Name !",
-                                thumb_url="https://i.imgur.com/7a7aPVa.png",
+                                thumb_url="https://imgur.com/gallery/ieSTXbM",
                             )
                         )
                     else:
@@ -639,7 +639,7 @@ if petercord.has_bot:
                     if Config.ALIVE_MEDIA.lower().strip() == "false":
                         results.append(
                             InlineQueryResultArticle(
-                                title="USERGE-X",
+                                title="Petercord",
                                 input_message_content=InputTextMessageContent(
                                     alive_info, disable_web_page_preview=True
                                 ),
@@ -700,7 +700,7 @@ if petercord.has_bot:
             if string == "geass":
                 results.append(
                     InlineQueryResultAnimation(
-                        animation_url="https://i.imgur.com/DeZHcRK.gif",
+                        animation_url="https://imgur.com/gallery/ieSTXbM",
                         caption="To defeat evil, I must become a greater evil",
                     )
                 )
@@ -757,7 +757,7 @@ if petercord.has_bot:
                     InlineQueryResultArticle(
                         title="GApps",
                         input_message_content=InputTextMessageContent(
-                            "[\u200c](https://i.imgur.com/BZBMrfn.jpg) **LATEST Android 10 arm64 GApps**"
+                            "[\u200c](https://imgur.com/gallery/ieSTXbM) **LATEST Android 10 arm64 GApps**"
                         ),
                         description="Get Latest GApps Download Links Directly from SF",
                         thumb_url="https://i.imgur.com/Npzw8Ph.png",
@@ -768,8 +768,8 @@ if petercord.has_bot:
             if len(string_split) == 2 and (string_split[0] == "ofox"):
                 codename = string_split[1]
                 t = TelegraphPoster(use_api=True)
-                t.create_api_token("Userge-X")
-                photo = "https://i.imgur.com/582uaSk.png"
+                t.create_api_token("Petercord")
+                photo = "https://imgur.com/gallery/ieSTXbM"
                 api_host = "https://api.orangefox.download/v2/device/"
                 try:
                     async with get_response.get_session() as session:
@@ -807,7 +807,7 @@ if petercord.has_bot:
                 results.append(
                     InlineQueryResultPhoto(
                         photo_url=photo,
-                        thumb_url="https://i.imgur.com/o0onLYB.jpg",
+                        thumb_url="https://imgur.com/gallery/ieSTXbM",
                         title="Latest OFOX RECOVERY",
                         description=f"For device : {codename}",
                         caption=msg,
@@ -874,7 +874,7 @@ if petercord.has_bot:
                                     "<b>Click To View The Spoiler !</b>"
                                 ),
                                 description="Click To Send",
-                                thumb_url="https://telegra.ph/file/ee3a6439494463acd1a3a.jpg",
+                                thumb_url="https://imgur.com/gallery/ieSTXbM",
                                 reply_markup=InlineKeyboardMarkup(buttons),
                             )
                         )
@@ -903,7 +903,7 @@ if petercord.has_bot:
                                             "<b>Click To View The Spoiler !</b>"
                                         ),
                                         description=f"Created At: {savetime}",
-                                        thumb_url="https://telegra.ph/file/ee3a6439494463acd1a3a.jpg",
+                                        thumb_url="https://imgur.com/gallery/ieSTXbM",
                                         reply_markup=InlineKeyboardMarkup(buttons),
                                     )
                                 )
@@ -936,7 +936,7 @@ if petercord.has_bot:
                         title="Ask For Opinion",
                         input_message_content=InputTextMessageContent(txt),
                         description=f"Q. {txt}",
-                        thumb_url="https://i.imgur.com/Zlc98qS.jpg",
+                        thumb_url="https://imgur.com/gallery/ieSTXbM",
                         reply_markup=InlineKeyboardMarkup(buttons),
                     )
                 )
@@ -1061,7 +1061,7 @@ if petercord.has_bot:
                     i_m_content = f"📩 <b>Secret Msg</b> for <b>{r_name}</b>. Only he/she can open it."
                     i_l_des = f"Send Secret Message to: {r_name}"
                     title = "Send A Secret Message"
-                    thumb_img = "https://i.imgur.com/c5pZebC.png"
+                    thumb_img = "https://imgur.com/gallery/ieSTXbM"
                 else:
                     c_data = f"troll_{key_}"
                     i_m_content = f"😈 Only <b>{r_name}</b> can't view this message. UwU"
@@ -1141,9 +1141,9 @@ if petercord.has_bot:
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
                 input_message_content=InputTextMessageContent("  🇱 🇪 🇴𝚉 ᴬˢˢᴵˢᵀᴬᴺᵀ  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
-                url="https://github.com/wonkru-bot/Ma-Version-Of-X",
-                description="Userge-X Main Menu",
-                thumb_url="https://i.imgur.com/1xsOo9o.png",
+                url="https://github.com/IlhamMansiez/Petercord",
+                description="Petercor Main Menu",
+                thumb_url="https://imgur.com/gallery/ieSTXbM",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
             )
             results.append(MAIN_MENU)
