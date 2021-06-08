@@ -12,12 +12,12 @@ if os.path.isfile("config.env"):
 
 async def genStrSession() -> None:  # pylint: disable=missing-function-docstring
     async with Client(
-            "Userge",
+            "Petercord",
             api_id=int(os.environ.get("API_ID") or input("Enter Telegram APP ID: ")),
             api_hash=os.environ.get("API_HASH") or input("Enter Telegram API HASH: ")
     ) as petercord:
         print("\nprocessing...")
-        await userge.send_message(
+        await petercord.send_message(
             "me", f"#Petercord #HU_STRING_SESSION\n\n```{await petercord.export_session_string()}```")
         print("Done !, session string has been sent to saved messages!")
 
