@@ -3,7 +3,6 @@
 # 𝚃𝙷𝙴 PETERCORDBOT
 This is a userbot made for telegram. I made this userbot with help of all other userbots available in telegram. All credits TeamUserge Thnks
 
-![PETERCORDBOT](https://t.me/diemmmmmmmmmm)
 [![PETERCOEDBOT LOGO](https://telegra.ph/file/b52e42266a323cbe9f849.jpg)](https://t.me/REBELBOT_SUPPORT)
 
 
