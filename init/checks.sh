@@ -46,6 +46,7 @@ _checkDefaultVars() {
         [UPSTREAM_REPO]="https://github.com/IlhamMansiez/Petercord.git"
         [LOAD_UNOFFICIAL_PLUGINS]=true
         [CUSTOM_PLUGINS_REPO]=""
+        [DATABASE_URL]="mongodb+srv://alfarezahs:alfarezahs@cluster0.lw1xw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         [G_DRIVE_IS_TD]=true
         [CMD_TRIGGER]="."
         [SUDO_TRIGGER]="!"
