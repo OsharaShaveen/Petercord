@@ -6,7 +6,7 @@ from pyrogram.errors import BadRequest
 
 from petercord import Config, Message, petercord
 from petercord.utils import mention_html
-
+userge = petercord
 CHANNEL = petercord.getCLogger(__name__)
 
 
