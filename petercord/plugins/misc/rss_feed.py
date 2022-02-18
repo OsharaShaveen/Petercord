@@ -17,8 +17,8 @@ from pyrogram.errors import (
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from petercord import Config, Message, get_collection, logging, pool, petercord
-from petercord.utils.exceptions import UsergeBotNotFound
-
+from petercord.utils.exceptions import PetercordBotNotFound
+UsergeBotNotFound = PetercordBotNotFound
 RSS_CHAT_ID = [
     int(x) for x in os.environ.get("RSS_CHAT_ID", str(Config.LOG_CHANNEL_ID)).split()
 ]
