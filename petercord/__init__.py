@@ -6,3 +6,4 @@ from petercord.core import (  # noqa
     Petercord, filters, Message, get_collection, pool)
 
 petercord = Petercord()  # userge is the client name
+userge = petercord
