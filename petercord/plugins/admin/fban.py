@@ -5,7 +5,7 @@ from pyrogram import filters
 from pyrogram.errors import FloodWait, Forbidden, PeerIdInvalid
 
 from petercord import Config, Message, get_collection, petercord
-
+userge = petercord
 FED_LIST = get_collection("FED_LIST")
 CHANNEL = petercord.getCLogger(__name__)
 
