@@ -3,7 +3,7 @@
 from petercord import Config, Message, get_collection, petercord
 
 SAVED_SETTINGS = get_collection("CONFIGS")
-
+userge = petercord
 
 async def _init() -> None:
     msg_t = await SAVED_SETTINGS.find_one({"_id": "MSG_DELETE_TIMEOUT"})
