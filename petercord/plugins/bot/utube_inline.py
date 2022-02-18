@@ -33,7 +33,7 @@ from petercord.utils import (
 )
 
 from ..misc.upload import upload
-
+userge = petercord
 LOGGER = petercord.getLogger(__name__)
 BASE_YT_URL = "https://www.youtube.com/watch?v="
 YOUTUBE_REGEX = comp_regex(
