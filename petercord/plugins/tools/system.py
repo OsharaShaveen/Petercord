@@ -12,7 +12,7 @@ from petercord.utils import terminate
 
 SAVED_SETTINGS = get_collection("CONFIGS")
 DISABLED_CHATS = get_collection("DISABLED_CHATS")
-
+userge = petercord
 MAX_IDLE_TIME = 300
 LOG = petercord.getLogger(__name__)
 CHANNEL = petercord.getCLogger(__name__)
