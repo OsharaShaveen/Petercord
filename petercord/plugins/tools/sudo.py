@@ -5,6 +5,7 @@ import asyncio
 from pyrogram.errors import PeerIdInvalid
 
 from petercord import Config, Message, get_collection, petercord
+userge = petercord
 
 SAVED_SETTINGS = get_collection("CONFIGS")
 SUDO_USERS_COLLECTION = get_collection("sudo_users")
