@@ -13,11 +13,11 @@ from petercord.utils.functions import get_emoji_regex
         "header": "Translate the given text using Google Translate",
         "supported languages": dumps(LANGUAGES, indent=4, sort_keys=True),
         "usage": "from english to sinhala\n"
-        "{tr}tr -en -si i am userge\n\n"
+        "{tr}tr -en -si i am Petercord\n\n"
         "from auto detected language to sinhala\n"
         "{tr}tr -si i am userge\n\n"
         "from auto detected language to preferred\n"
-        "{tr}tr i am userge\n\n"
+        "{tr}tr i am Petercord\n\n"
         "reply to message you want to translate from english to sinhala\n"
         "{tr}tr -en -si\n\n"
         "reply to message you want to translate from auto detected language to sinhala\n"
