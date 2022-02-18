@@ -4,7 +4,7 @@ import datetime
 from pyrogram.errors import MessageDeleteForbidden
 
 from petercord import Message, petercord
-
+userge = petercord
 
 @petercord.on_cmd(
     "purge",
