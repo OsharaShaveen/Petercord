@@ -6,7 +6,7 @@ from typing import Dict
 from petercord import Config, Message, filters, get_collection, petercord
 from petercord.utils import SafeDict
 from petercord.utils.extras import reported_user_image
-
+userge = petercord
 CHANNEL = petercord.getCLogger(__name__)
 SAVED_SETTINGS = get_collection("CONFIGS")
 ALLOWED_COLLECTION = get_collection("PM_PERMIT")
