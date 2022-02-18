@@ -22,7 +22,7 @@ from petercord.utils.exceptions import ProcessCanceled
 
 _LOG = petercord.getLogger(__name__)
 
-
+userge = petercord
 class _BaseLib:
     """Base Class for PackLib and SCLib"""
 
