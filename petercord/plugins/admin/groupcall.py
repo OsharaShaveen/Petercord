@@ -24,7 +24,7 @@ from pyrogram.raw.types import (
 
 from petercord import Message, petercord
 from petercord.utils import clean_obj
-
+userge = petercord
 from ..tools.json import yamlify
 
 
