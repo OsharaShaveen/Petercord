@@ -5,7 +5,7 @@ import os
 from petercord import Config, Message, petercord
 from petercord.plugins import ROOT
 from petercord.utils import get_import_path
-
+userge = petercord
 
 @petercord.on_cmd(
     "status",
@@ -28,21 +28,21 @@ async def status(message: Message) -> None:
     name_ = message.filtered_input_str
     type_ = list(message.flags)
     if not type_:
-        out_str = f"""🎖 **--PETERCORD Status--** 🎖
+        out_str = f""" **--Petercord-X Status--** 
 
-🎖 **Plugins** : `{len(petercord.manager.plugins)}`
+📝 **Plugins** : `{len(petercord.manager.plugins)}`
         ✅ **Loaded** : `{len(petercord.manager.loaded_plugins)}`
         ➕ **Enabled** : `{len(petercord.manager.enabled_plugins)}`
         ➖ **Disabled** : `{len(petercord.manager.disabled_plugins)}`
         ❎ **Unloaded** : `{len(petercord.manager.unloaded_plugins)}`
 
-🎖 **Commands** : `{len(petercord.manager.commands)}`
+✅ **Commands** : `{len(petercord.manager.commands)}`
         ✅ **Loaded** : `{len(petercord.manager.loaded_commands)}`
         ➕ **Enabled** : `{len(petercord.manager.enabled_commands)}`
         ➖ **Disabled** : `{len(petercord.manager.disabled_commands)}`
         ❎ **Unloaded** : `{len(petercord.manager.unloaded_commands)}`
 
-⚡ **Filters** : `{len(petercord.manager.filters)}`
+📊 **Filters** : `{len(petercord.manager.filters)}`
         ✅ **Loaded** : `{len(petercord.manager.loaded_filters)}`
         ➕ **Enabled** : `{len(petercord.manager.enabled_filters)}`
         ➖ **Disabled** : `{len(petercord.manager.disabled_filters)}`
@@ -52,14 +52,14 @@ async def status(message: Message) -> None:
         if name_:
             if name_ in petercord.manager.plugins:
                 plg = petercord.manager.plugins[name_]
-                out_str = f"""🎖 **--Plugin Status--** 🎖
+                out_str = f""" **--Plugin Status--** 
 
 ⚡ **Name** : `{plg.name}`
 ⚡ **Doc** : `{plg.doc}`
 ✅ **Loaded** : `{plg.is_loaded}`
 ➕ **Enabled** : `{plg.is_enabled}`
 
-🎖 **Commands** : `{len(plg.commands)}`
+✅ **Commands** : `{len(plg.commands)}`
         `{'`,    `'.join((cmd.name for cmd in plg.commands))}`
         ✅ **Loaded** : `{len(plg.loaded_commands)}`
         ➕ **Enabled** : `{len(plg.enabled_commands)}`
@@ -81,7 +81,7 @@ async def status(message: Message) -> None:
                 await message.err(f"plugin : `{name_}` not found!")
                 return
         else:
-            out_str = f"""🎖 **--Plugins Status--** 🎖
+            out_str = f""" **--Plugins Status--** 
 
 ⚡ **Total** : `{len(petercord.manager.plugins)}`
 ✅ **Loaded** : `{len(petercord.manager.loaded_plugins)}`
@@ -102,18 +102,18 @@ async def status(message: Message) -> None:
             else:
                 await message.err(f"command : {name_} not found!")
                 return
-            out_str = f"""🎖 **--Command Status--** 🎖
+            out_str = f""" **--Command Status--** 
 
-🎖 **Name** : `{cmd.name}`
-🎖 **Doc** : `{cmd.doc}`
-⚡ **Via Bot** : `{cmd.allow_via_bot}`
+📝 **Name** : `{cmd.name}`
+📝 **Doc** : `{cmd.doc}`
+👾 **Via Bot** : `{cmd.allow_via_bot}`
 ✅ **Loaded** : `{cmd.is_loaded}`
 ➕ **Enabled** : `{cmd.is_enabled}`
 """
         else:
             out_str = f"""🎖 **--Commands Status--** 🎖
 
-🎖 **Total** : `{len(petercord.manager.commands)}`
+📊 **Total** : `{len(petercord.manager.commands)}`
 ✅ **Loaded** : `{len(petercord.manager.loaded_commands)}`
 ➕ **Enabled** : `{len(petercord.manager.enabled_commands)}`
 ➖ **Disabled** : `{len(petercord.manager.disabled_commands)}`
@@ -127,9 +127,9 @@ async def status(message: Message) -> None:
                 flt = petercord.manager.filters[name_]
                 out_str = f"""🎖 **--Filter Status--** 🎖
 
-🎖 **Name** : `{flt.name}`
-🎖 **Doc** : `{flt.doc}`
-⚡ **Via Bot** : `{flt.allow_via_bot}`
+📝 **Name** : `{flt.name}`
+📝 **Doc** : `{flt.doc}`
+👾 **Via Bot** : `{flt.allow_via_bot}`
 ✅ **Loaded** : `{flt.is_loaded}`
 ➕ **Enabled** : `{flt.is_enabled}`
 """
@@ -137,7 +137,7 @@ async def status(message: Message) -> None:
                 await message.err(f"filter : {name_} not found!")
                 return
         else:
-            out_str = f"""🎖 **--Filters Status--** 🎖
+            out_str = f""" **--Filters Status--** 
 
 ⚡ **Total** : `{len(petercord.manager.filters)}`
 ✅ **Loaded** : `{len(petercord.manager.loaded_filters)}`
