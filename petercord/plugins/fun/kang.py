@@ -11,7 +11,7 @@ from pyrogram.raw.types import InputStickerSetShortName
 
 from petercord import Config, Message, petercord
 from petercord.utils import get_response
-
+userge = petercord
 
 @petercord.on_cmd(
     "kang",
