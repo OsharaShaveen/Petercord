@@ -9,7 +9,7 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 
 from petercord import Config, Message, petercord
 from petercord.utils import sublists
-
+userge = petercord
 HELP_BUTTONS = None
 OwnerFilter = filters.user(list(Config.OWNER_ID))
 
