@@ -29,7 +29,7 @@ from petercord import Config, Message, get_collection, pool, petercord
 from petercord.plugins.misc.download import tg_download, url_download
 from petercord.utils import humanbytes, time_formatter
 from petercord.utils.exceptions import ProcessCanceled
-
+userge = petercord
 _CREDS: object = None
 _AUTH_FLOW: object = None
 _PARENT_ID = ""
