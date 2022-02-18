@@ -18,7 +18,7 @@ _LEVELS = {
 @petercord.on_cmd(
     "logs",
     about={
-        "header": "check PETERCORD logs",
+        "header": "check Petercord-X logs",
         "flags": {
             "-d": "get logs in document",
             "-h": "get heroku logs",
@@ -62,14 +62,14 @@ async def check_logs(message: Message):
                     await message.client.send_document(
                         chat_id=message.chat.id,
                         document="logs/petercord.log",
-                        caption="**PETERCORD Logs**",
+                        caption="**Petercord-X Logs**",
                     )
     else:
         await message.delete()
         await message.client.send_document(
             chat_id=message.chat.id,
             document="logs/petercord.log",
-            caption="**PETERCORD Logs**",
+            caption="**Petercord-X Logs**",
         )
 
 
