@@ -7,7 +7,7 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 
 from petercord import Config, Message, petercord
 from petercord.utils import check_owner, get_response, rand_key
-
+userge = petercord
 GOGO = "https://gogoanime.so"
 GOGO_DB = {}
 
