@@ -11,7 +11,7 @@ from petercord import Config, Message, get_collection, petercord
 from petercord.utils import mention_html
 
 from .bot_pm import check_new_bot_user
-
+userge = petercord
 CHANNEL = petercord.getCLogger(__name__)
 PATH = "./petercord/xcache/spoiler_db.json"
 BOT_BAN = get_collection("BOT_BAN")
