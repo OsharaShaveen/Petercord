@@ -7,7 +7,7 @@ from pyrogram.errors import BadRequest, FloodWait
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from petercord import Config, Message, petercord
-
+userge = petercord
 PATH = "petercord/xcache/emoji_data.txt"
 CHANNEL = petercord.getCLogger(__name__)
 
