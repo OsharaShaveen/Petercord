@@ -18,10 +18,10 @@ from petercord import Config, Message, userge
 from petercord.plugins.misc.download import tg_download, url_download
 from petercord.utils import humanbytes, progress, take_screen_shot
 from petercord.utils.exceptions import ProcessCanceled
-
+petercord = userge
 LOGGER = petercord.getLogger(__name__)
 CHANNEL = petercord.getCLogger(__name__)
-petercord = userge
+
 LOGO_PATH = "resources/logo_petercord.png"
 
 @petercord.on_cmd(
