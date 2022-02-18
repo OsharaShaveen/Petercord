@@ -7,6 +7,7 @@ from pyrogram.errors import FloodWait, MessageIdInvalid
 
 from petercord import Config, Message, get_collection, petercord
 from petercord.utils import mention_html
+userge = petercord
 
 SAVED_SETTINGS = get_collection("CONFIGS")
 ALLOWED_COLLECTION = get_collection("PM_PERMIT")
