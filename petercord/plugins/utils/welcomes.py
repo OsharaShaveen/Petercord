@@ -3,7 +3,7 @@
 
 
 from petercord import petercord, filters, Message, Config, get_collection
-
+userge = petercord
 WELCOME_COLLECTION = get_collection("welcome")
 LEFT_COLLECTION = get_collection("left")
 WELCOME_CHATS = filters.chat([])
