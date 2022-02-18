@@ -15,7 +15,7 @@ from petercord.utils import sublists
 
 from .upload import doc_upload, photo_upload
 
-
+userge = petercord
 class Colors:
     # fmt: off
     choice = [
