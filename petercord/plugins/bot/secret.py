@@ -7,7 +7,7 @@ from pyrogram.errors import BadRequest, MessageNotModified
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from petercord import Config, petercord
-
+userge = petercord
 if petercord.has_bot:
 
     @petercord.bot.on_callback_query(filters.regex(pattern=r"^(secret|troll)_(.*)"))
