@@ -37,7 +37,7 @@ async def _init() -> None:
 async def helpme(message: Message) -> None:  # pylint: disable=missing-function-docstring
     plugins = petercord.manager.enabled_plugins
     if not message.input_str:
-        out_str = f"""🎖 <b><u>(<code>{len(plugins)}</code>) Plugin(s) Available</u></b>\n\n"""
+        out_str = f"""📝 <b><u>(<code>{len(plugins)}</code>) Plugin(s) Available</u></b>\n\n"""
         cat_plugins = petercord.manager.get_plugins()
         for cat in sorted(cat_plugins):
             if cat == "plugins":
@@ -45,7 +45,7 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
             out_str += (f"    {_CATEGORY.get(cat, '⚡')} <b>{cat}</b> "
                         f"(<code>{len(cat_plugins[cat])}</code>) :   <code>"
                         + "</code>    <code>".join(sorted(cat_plugins[cat])) + "</code>\n\n")
-        out_str += f"""🎖 <b>Usage:</b>  <code>{Config.CMD_TRIGGER}help [plugin_name]</code>"""
+        out_str += f"""📝 <b>Usage:</b>  <code>{Config.CMD_TRIGGER}help [plugin_name]</code>"""
     else:
         key = message.input_str
         if (not key.startswith(Config.CMD_TRIGGER)
@@ -53,13 +53,13 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
                 and (len(plugins[key].enabled_commands) > 1
                      or plugins[key].enabled_commands[0].name.lstrip(Config.CMD_TRIGGER) != key)):
             commands = plugins[key].enabled_commands
-            out_str = f"""🎖 <b><u>(<code>{len(commands)}</code>) Command(s) Available</u></b>
-🎖 <b>Plugin:</b>  <code>{key}</code>
-🎖 <b>Doc:</b>  <code>{plugins[key].doc}</code>\n\n"""
+            out_str = f"""📝 <b><u>(<code>{len(commands)}</code>) Command(s) Available</u></b>
+📝 <b>Plugin:</b>  <code>{key}</code>
+📝 <b>Doc:</b>  <code>{plugins[key].doc}</code>\n\n"""
             for i, cmd in enumerate(commands, start=1):
-                out_str += (f"    🎖 <b>cmd(<code>{i}</code>):</b>  <code>{cmd.name}</code>\n"
-                            f"    🎖 <b>info:</b>  <i>{cmd.doc}</i>\n\n")
-            out_str += f"""🎖 <b>Usage:</b>  <code>{Config.CMD_TRIGGER}help [command_name]</code>"""
+                out_str += (f"    📝 <b>cmd(<code>{i}</code>):</b>  <code>{cmd.name}</code>\n"
+                            f"    📝 <b>info:</b>  <i>{cmd.doc}</i>\n\n")
+            out_str += f"""📝 <b>Usage:</b>  <code>{Config.CMD_TRIGGER}help [command_name]</code>"""
         else:
             commands = petercord.manager.enabled_commands
             key = key.lstrip(Config.CMD_TRIGGER)
@@ -104,7 +104,7 @@ if petercord.has_bot:
                                     petercord.manager.get_all_plugins())
         elif len(pos_list) == 2:
             buttons = parse_buttons(p_num, cur_pos,
-                                    lambda x: f"🎖 {x}",
+                                    lambda x: f"📊 {x}",
                                     petercord.manager.get_all_plugins()[pos_list[-1]])
         elif len(pos_list) == 3:
             _, buttons = plugin_data(cur_pos, p_num)
@@ -247,7 +247,7 @@ if petercord.has_bot:
                 "⬅ Back", callback_data=f"back({cur_pos})".encode()))
             if len(cur_pos.split('|')) > 2:
                 tmp_btns.append(InlineKeyboardButton(
-                    "🎖 Main Menu", callback_data="mm".encode()))
+                    "💼 Main Menu", callback_data="mm".encode()))
                 tmp_btns.append(InlineKeyboardButton(
                     "🔄 Refresh", callback_data=f"refresh({cur_pos})".encode()))
         else:
@@ -269,7 +269,7 @@ if petercord.has_bot:
     def plugin_data(cur_pos: str, p_num: int = 0):
         pos_list = cur_pos.split('|')
         plg = petercord.manager.plugins[pos_list[2]]
-        text = f"""🎖 **--Plugin Status--** 🎖
+        text = f"""🗂 **--Plugin Status--** 🗂
 🎖 **Category** : `{pos_list[1]}`
 🎖 **Name** : `{plg.name}`
 🎖 **Doc** : `{plg.doc}`
@@ -292,7 +292,7 @@ if petercord.has_bot:
             tmp_btns.append(InlineKeyboardButton(
                 "➕ Enable", callback_data=f"enable({'|'.join(pos_list[:3])})".encode()))
         buttons = parse_buttons(p_num, '|'.join(pos_list[:3]),
-                                lambda x: f"🎖 {x}" if is_filter(x) else f"🎖 {x}",
+                                lambda x: f"📝 {x}" if is_filter(x) else f"🎖 {x}",
                                 (flt.name for flt in plg.commands + plg.filters))
         buttons = buttons[:-1] + [tmp_btns] + [buttons[-1]]
         return text, buttons
