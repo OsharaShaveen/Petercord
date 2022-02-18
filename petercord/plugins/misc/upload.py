@@ -23,7 +23,6 @@ LOGGER = petercord.getLogger(__name__)
 CHANNEL = petercord.getCLogger(__name__)
 
 LOGO_PATH = "resources/logo_petercord.png"
-userge = petercord
 
 @petercord.on_cmd(
     "rename",
