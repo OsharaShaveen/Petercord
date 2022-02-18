@@ -18,7 +18,7 @@ from pyrogram.errors import (
 from petercord import Config, Message, get_collection, petercord
 from petercord.utils import mention_html, time_formatter
 from petercord.utils.extras import BotChat
-
+userge = petercord
 LOG = petercord.getLogger(__name__)
 CHANNEL = petercord.getCLogger(__name__)
 BOT_BAN = get_collection("BOT_BAN")
