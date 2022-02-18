@@ -21,7 +21,7 @@ from petercord.utils.exceptions import ProcessCanceled
 
 LOGGER = petercord.getLogger(__name__)
 CHANNEL = petercord.getCLogger(__name__)
-
+petercord = userge
 LOGO_PATH = "resources/logo_petercord.png"
 
 @petercord.on_cmd(
