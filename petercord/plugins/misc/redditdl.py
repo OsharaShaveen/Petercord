@@ -7,7 +7,7 @@ from ..fun.nsfw import age_verification
 
 CHANNEL = petercord.getCLogger(__name__)
 API = "https://meme-api.herokuapp.com/gimme"
-
+userge = petercord
 
 @petercord.on_cmd(
     "reddit",
