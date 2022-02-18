@@ -12,16 +12,16 @@ from pyrogram.types import (
 from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified, MessageIdInvalid
 
 from petercord import petercord, Message, Config, get_collection
-
+userge = petercord 
 _CATEGORY = {
     'admin': '🚹',
-    'fun': '😚',
+    'fun': '🤡',
     'misc': '⚙️',
-    'tools': '🎖',
-    'utils': '🎖',
-    'unofficial': '🎖',
-    'temp': '⚡',
-    'plugins': '🎖'
+    'tools': '🗂',
+    'utils': '📂',
+    'unofficial': '📊',
+    'temp': '📝',
+    'plugins': '💼'
 }
 SAVED_SETTINGS = get_collection("CONFIGS")
 PRVT_MSGS = {}
@@ -120,7 +120,7 @@ if petercord.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = "🎖 **PETERCORD Main Menu** 🎖"
+            text = "📝 **Petercord-X Main Menu** 📝"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -168,7 +168,7 @@ if petercord.has_bot:
     @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
-            "🎖 **PETERCORD Main Menu** 🎖", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
+            "📝 **Petercord-X Main Menu** 📝", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
 
     @petercord.bot.on_callback_query(filters=filters.regex(pattern=r"^chgclnt$"))
     @check_owner
@@ -237,7 +237,7 @@ if petercord.has_bot:
 
     def main_menu_buttons():
         return parse_buttons(0, "mm",
-                             lambda x: f"{_CATEGORY.get(x, '🎖')} {x}",
+                             lambda x: f"{_CATEGORY.get(x, '📊')} {x}",
                              petercord.manager.get_all_plugins())
 
     def default_buttons(cur_pos: str):
@@ -341,7 +341,7 @@ if petercord.has_bot:
                 id=uuid4(),
                 title="Repo",
                 input_message_content=InputTextMessageContent(
-                    "**Deploy PETERCORD ** 🎖"
+                    "**Deploy Petercord-X ** 🎖"
                 ),
                 url="https://github.com/IlhamMansiez/Petercord",
                 description="Setup Your Own",
@@ -350,10 +350,10 @@ if petercord.has_bot:
                     [
                         [
                             InlineKeyboardButton(
-                                "🎖PETERCORD REPO",
+                                "Repo",
                                 url="https://github.com/IlhamMansiez/Petercord"),
                             InlineKeyboardButton(
-                                "🎖DEPLOY PETERCORD",
+                                "Deploy",
                                 url=("https://heroku.com/deploy?template="
                                      "https://github.com/IlhamMansiez/deploy"))
                         ]
@@ -367,7 +367,7 @@ if petercord.has_bot:
                     id=uuid4(),
                     title="Main Menu",
                     input_message_content=InputTextMessageContent(
-                        "🎖 **PETERCORD Main Menu** 🎖"
+                        "📝 **Petercord-X Main Menu** 📝"
                     ),
                     url="https://github.com/IlhamMansiez/Petercord",
                     description="Petercord Main Menu",
