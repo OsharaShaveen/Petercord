@@ -15,7 +15,7 @@ from pyrogram.types import ChatPermissions
 
 from petercord import Message, petercord
 from petercord.utils.functions import get_emoji_regex
-
+userge = petercord
 CHANNEL = petercord.getCLogger(__name__)
 
 
