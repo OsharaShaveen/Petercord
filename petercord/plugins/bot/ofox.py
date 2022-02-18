@@ -3,6 +3,7 @@ from html_telegraph_poster import TelegraphPoster
 
 from petercord import Message, petercord
 
+userge = petercord
 
 @petercord.on_cmd(
     "ofox",
