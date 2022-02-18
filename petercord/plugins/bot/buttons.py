@@ -11,7 +11,7 @@ from pyrogram.types import ReplyKeyboardRemove
 from petercord import Config, Message, petercord
 from petercord.utils import get_file_id
 from petercord.utils import parse_buttons as pb
-
+userge = petercord
 from .bot_pm import get_bot_info
 
 BTN_REGEX = comp_regex(
