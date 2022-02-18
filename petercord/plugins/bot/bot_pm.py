@@ -19,7 +19,7 @@ from pyrogram.types import (
 
 from petercord import Config, Message, get_collection, pool, petercord
 from petercord.utils import check_owner, get_file_id
-
+userge = petercord
 from .bot_forwards import ban_from_bot_pm
 
 # Load from DB
