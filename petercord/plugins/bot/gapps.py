@@ -8,7 +8,7 @@ from requests import get
 from petercord import Config, Message, petercord
 
 # TODO Make Check Admin and Sudos Wrapper
-
+userge = petercord
 
 @petercord.on_cmd(
     "gapps", about={"header": "Get Android 10 arm64 GApps"}, allow_channels=False
