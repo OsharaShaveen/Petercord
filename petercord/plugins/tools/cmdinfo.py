@@ -12,7 +12,7 @@ from petercord import Config, Message, petercord
 from petercord.utils import check_owner, humanbytes
 
 plugin_regex = comp_regex(r"Path[\s:]{1,5}(userge/plugins/\w+/\w+\.py)")
-
+userge = petercord
 
 @petercord.on_cmd(
     "cmdinfo",
