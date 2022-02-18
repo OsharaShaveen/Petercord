@@ -3,10 +3,12 @@
 import asyncio
 import os
 import re
-import shlex
-from os.path import basename
 from typing import List, Optional, Tuple
-
+import asyncio
+import importlib
+import shlex
+from os.path import basename, join, exists
+from typing import Tuple, List, Optional, Iterator, Union
 from html_telegraph_poster import TelegraphPoster
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from ujson import loads
@@ -16,6 +18,21 @@ import petercord
 _LOG = petercord.logging.getLogger(__name__)
 
 _BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)]\[buttonurl:(?:/{0,2})(.+?)(:same)?])")
+
+
+def demojify(string: str) -> str:
+    """ Remove emojis and other non-safe characters from string """
+    return get_emoji_regexp().sub(u'', string)
+
+
+def get_file_id_of_media(message: 'userge.Message') -> Optional[str]:
+    """ get file_id """
+    file_ = message.audio or message.animation or message.photo \
+        or message.sticker or message.voice or message.video_note \
+        or message.video or message.document
+    if file_:
+        return file_.file_id
+    return None
 
 
 def get_file_id(
