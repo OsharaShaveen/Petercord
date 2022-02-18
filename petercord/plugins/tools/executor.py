@@ -12,7 +12,7 @@ from petercord import Config, Message, petercord
 from petercord.utils import runcmd
 
 CHANNEL = petercord.getCLogger()
-
+userge = petercord
 
 @petercord.on_cmd(
     "eval",
@@ -21,8 +21,8 @@ CHANNEL = petercord.getCLogger()
         "flags": {"-s": "silent mode (hide STDIN)"},
         "usage": "{tr}eval [flag] [code lines]",
         "examples": [
-            "{tr}eval print('PETERCORD')",
-            "{tr}eval -s print('PETERCORD')",
+            "{tr}eval print('Petercord-X')",
+            "{tr}eval -s print('Petercord-X')",
             "{tr}eval 5 + 6",
             "{tr}eval -s 5 + 6",
         ],
