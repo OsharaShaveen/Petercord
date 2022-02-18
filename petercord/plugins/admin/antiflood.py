@@ -10,7 +10,7 @@ from petercord import Message, get_collection, petercord
 ANTIFLOOD_DATA = {}
 ADMINS = {}
 FLOOD_CACHE = {}
-
+userge = petercord
 ANTI_FLOOD = get_collection("ANTIFLOOD")
 
 LOG = petercord.getLogger(__name__)
