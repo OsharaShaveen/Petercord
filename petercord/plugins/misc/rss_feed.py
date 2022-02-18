@@ -30,7 +30,7 @@ RSS_DICT: Dict[str, List[datetime]] = {}
 RSS_COLLECTION = get_collection("RSS_FEED")
 TASK_RUNNING = False
 
-
+userge = petercord
 async def _init():
     async for i in RSS_COLLECTION.find():
         RSS_DICT[i["url"]] = [i["published"], None]
