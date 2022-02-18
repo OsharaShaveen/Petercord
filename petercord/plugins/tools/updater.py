@@ -9,12 +9,12 @@ from petercord import Config, Message, pool, petercord
 
 LOG = petercord.getLogger(__name__)
 CHANNEL = petercord.getCLogger(__name__)
-
+userge = petercord
 
 @petercord.on_cmd(
     "update",
     about={
-        "header": "Check Updates or Update USERGE-X",
+        "header": "Check Updates or Update Petercord-X",
         "flags": {
             "-pull": "pull updates",
             "-branch": "Default is -petercord",
@@ -92,7 +92,7 @@ async def check_update(message: Message):
                     "`Now restarting... Wait for a while!`",
                     del_in=3,
                 )
-                asyncio.get_event_loop().create_task(userge.restart(True))
+                asyncio.get_event_loop().create_task(petercord.restart(True))
         elif push_to_heroku:
             await _pull_from_repo(repo, branch)
         else:
@@ -106,7 +106,7 @@ async def check_update(message: Message):
             await _pull_from_repo(repo, branch)
             await CHANNEL.log(f"`Moved HEAD from [{active}] >>> [{branch}] !`")
             await message.edit("`Now restarting... Wait for a while!`", del_in=3)
-            asyncio.get_event_loop().create_task(userge.restart())
+            asyncio.get_event_loop().create_task(petercord.restart())
     if push_to_heroku:
         await _push_to_heroku(message, repo, branch)
 
