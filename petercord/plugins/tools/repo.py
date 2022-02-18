@@ -7,11 +7,10 @@ from petercord import petercord, Message, Config, versions
 async def see_repo(message: Message):
     """see repo"""
     output = f"""
-**HI**, __WELCOME PETERCORD USERBOT__ 🎖 **PETERCORD** 🎖
-    __DATA PETERCORD__
-• **VERSION** : `🇮🇩2021🇮🇩`
+   Petercord-X
+• **VERSION** : `3.03`
 • **LICENSE** : {versions.__license__}
 • **COPYRIGHT** : {versions.__copyright__}
-• **REPO** : [PETERCORD]({Config.UPSTREAM_REPO})
+• **REPO** : [Click here]({Config.UPSTREAM_REPO})
 """
     await message.edit(output)
