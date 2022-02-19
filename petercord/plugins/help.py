@@ -434,11 +434,17 @@ if petercord.has_bot:
         if ";" not in string_given:
             return
         await client.answer_inline_query(
-            InlineQueryResultArticle(
-                title="Menu Help Petercord-X",
-                reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
-            )
+            await client.answer_inline_query(
+            results=[
+                (
+                    InlineQueryResultArticle(
+                        title="Menu Petercord-X",
+                        reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
+                    )
+                )
+            ],
         )
+
 
 
 
