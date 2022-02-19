@@ -252,7 +252,7 @@ if petercord.has_bot:
                 tmp_btns.append(InlineKeyboardButton(
                     "🔄 Refresh", callback_data=f"refresh({cur_pos})".encode()))
         else:
-            cur_clnt = "🎖 USER" if Config.USE_USER_FOR_CLIENT_CHECKS else "🤖 BOT"
+            cur_clnt = "✅ Pengguna" if Config.USE_USER_FOR_CLIENT_CHECKS else "🤖 BOT"
             tmp_btns.append(InlineKeyboardButton(
                 f"🔩 Client for Checks and Sudos : {cur_clnt}", callback_data="chgclnt".encode()))
         return [tmp_btns]
