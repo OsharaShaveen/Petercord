@@ -441,7 +441,7 @@ if petercord.has_bot:
             and Config.SUDO_ENABLED
         ):
 
-            if string == "helpme":
+            if string.startswith("helpme"):
                 owner = main_menu_buttons()
                 results.append(
                     InlineQueryResultArticle(
