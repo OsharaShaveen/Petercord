@@ -434,7 +434,6 @@ if petercord.has_bot:
         if ";" not in string_given:
             return
         await client.answer_inline_query(
-            await client.answer_inline_query(
             results=[
                 (
                     InlineQueryResultArticle(
