@@ -463,5 +463,5 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
             )
         except BaseException as e:
             return await message.edit(
-                "`Anda tidak dapat mengirim hasil sebaris dalam obrolan ini (disebabkan oleh SendInlineBotResultRequest)`"
+                f"`Anda tidak dapat mengirim hasil sebaris dalam obrolan ini disebabkan {e}`"
             )
