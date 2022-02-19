@@ -15,11 +15,12 @@ from petercord import petercord, Message, Config, get_collection
 userge = petercord 
 _CATEGORY = {
     'admin': '🚹',
-    'fun': '🤡',
-    'misc': '⚙️',
+    'fun': '🎨',
+    'misc': '📚',
     'tools': '🗂',
     'utils': '📂',
     'unofficial': '📊',
+    "bot": "👾",
     'temp': '📝',
     'plugins': '💼'
 }
@@ -100,7 +101,7 @@ if petercord.has_bot:
         pos_list = cur_pos.split('|')
         if len(pos_list) == 1:
             buttons = parse_buttons(p_num, cur_pos,
-                                    lambda x: f"{_CATEGORY.get(x, '🎖')} {x}",
+                                    lambda x: f"{_CATEGORY.get(x, '📚')} {x}",
                                     petercord.manager.get_all_plugins())
         elif len(pos_list) == 2:
             buttons = parse_buttons(p_num, cur_pos,
@@ -260,9 +261,9 @@ if petercord.has_bot:
         pos_list = cur_pos.split('|')
         plugins = petercord.manager.get_all_plugins()[pos_list[1]]
         text = (f"**(`{len(plugins)}`) Plugin(s) Under : "
-                f"`{_CATEGORY.get(pos_list[1], '🎖')} {pos_list[1]}` 🎖 Category**")
+                f"`{_CATEGORY.get(pos_list[1], '📚')} {pos_list[1]}` 📚 Category**")
         buttons = parse_buttons(0, '|'.join(pos_list[:2]),
-                                lambda x: f"🎖 {x}",
+                                lambda x: f"📚 {x}",
                                 plugins)
         return text, buttons
 
@@ -314,7 +315,7 @@ if petercord.has_bot:
 {flt.about}
 """
         else:
-            text = f"""🎖 **--Filter Status--** 🎖
+            text = f"""🚨 **--Filter Status--** 🚨
 {flt_data}
 """
         buttons = default_buttons(cur_pos)
@@ -423,3 +424,28 @@ if petercord.has_bot:
                     )
                 )
         await inline_query.answer(results=results, cache_time=3)
+
+
+    @petercord.bot.on_inline_query()
+    async def inline_answer(_, inline_query: InlineQuery):
+        results = []
+        i_q = inline_query.query
+        string = i_q.lower()  # All lower
+        str_x = i_q.split(" ", 2)  # trigger @username Text
+        str_y = i_q.split(" ", 1)  # trigger and Text
+        string_split = string.split()  # All lower and Split each word
+        iq_user_id = inline_query.from_user.id
+        if (
+            (iq_user_id in Config.OWNER_ID)
+            or (iq_user_id in Config.SUDO_USERS)
+            and Config.SUDO_ENABLED
+        ):
+
+            if string == "helpme":
+                owner = main_menu_buttons()
+                results.append(
+                    InlineQueryResultArticle(
+                        title="Menu Help Petercord-X",
+                        reply_markup=InlineKeyboardMarkup(owner),
+                    )
+                )
