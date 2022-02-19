@@ -457,7 +457,7 @@ if petercord.has_bot:
 
 @petercord.on_cmd("helpme", about={'header': "Guide to use PETERCORD commands"}, allow_channels=False)
 async def helpme(message: Message) -> None:  # pylint: disable=missing-function-docstring
-    if bot:
+    if petercord:
         starkbot = await petercord.bot.get_me()
         bot_username = starkbot.username
         try:
