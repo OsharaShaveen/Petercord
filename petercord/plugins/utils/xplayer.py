@@ -14,7 +14,6 @@ from typing import Dict, List, Optional, Set, Union
 
 import youtube_dl
 from petercord import Config, Message, get_collection, petercord, pool
-from petercord.plugins.bot.alive import _parse_arg
 from petercord.plugins.bot.utube_inline import BASE_YT_URL, get_yt_video_id, get_ytthumb
 from petercord.plugins.misc.upload import check_thumb
 from petercord.plugins.utils.songlink import find_url_from_msg, get_song_link
@@ -25,6 +24,10 @@ from petercord.utils import (
     safe_filename,
     time_formatter,
 )
+
+def _parse_arg(arg: bool) -> str:
+    return " ✅ 𝙴𝚗𝚊𝚋𝚕𝚎𝚍" if arg else " ❌ 𝙳𝚒𝚜𝚊𝚋𝚕𝚎𝚍"
+
 from pyrogram import filters
 from pyrogram.errors import PeerIdInvalid, UserNotParticipant
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
