@@ -1,19 +1,16 @@
-
 """ setup AFK mode """
-
-# Petercord.
 
 import asyncio
 import time
 from random import choice, randint
 
-from petercord import Config, Message, petercord, filters, get_collection
+from petercord import Config, Message, filters, get_collection, petercord
 from petercord.utils import time_formatter
 
 CHANNEL = petercord.getCLogger(__name__)
 SAVED_SETTINGS = get_collection("CONFIGS")
 AFK_COLLECTION = get_collection("AFK")
-alpha = petercord
+userge = petercord
 IS_AFK = False
 IS_AFK_FILTER = filters.create(lambda _, __, ___: bool(IS_AFK))
 REASON = ""
@@ -32,12 +29,12 @@ async def _init() -> None:
         USERS.update({_user["_id"]: [_user["pcount"], _user["gcount"], _user["men"]]})
 
 
-@alpha.on_cmd(
+@petercord.on_cmd(
     "afk",
     about={
-        "header": "Setel ke mode AFK",
-        "description": "Menyetel status Anda sebagai AFK. Merespon siapa saja yang menandai /PM.\n"
-        "Anda mengatakan bahwa Anda AFK. Mematikan AFK saat Anda mengetik kembali apa pun.",
+        "header": "Set to AFK mode",
+        "description": "Sets your status as AFK. Responds to anyone who tags/PM's.\n"
+        "you telling you are AFK. Switches off AFK when you type back anything.",
         "usage": "{tr}afk or {tr}afk [reason]",
     },
     allow_channels=False,
@@ -49,8 +46,8 @@ async def active_afk(message: Message) -> None:
     TIME = time.time()
     REASON = message.input_str
     await asyncio.gather(
-        CHANNEL.log(f"Gua Lagi AFK! : `{REASON}`"),
-        message.edit("`Gua Lagi AFK!`"),
+        CHANNEL.log(f"Gue lagi Afk! : `{REASON}`"),
+        message.edit("`Gue lagi Afk!`", del_in=1),
         AFK_COLLECTION.drop(),
         SAVED_SETTINGS.update_one(
             {"_id": "AFK"},
@@ -60,10 +57,11 @@ async def active_afk(message: Message) -> None:
     )
 
 
-@alpha.on_filters(
+@petercord.on_filters(
     IS_AFK_FILTER
     & ~filters.me
     & ~filters.bot
+    & ~filters.user(Config.TG_IDS)
     & ~filters.edited
     & (
         filters.mentioned
@@ -80,6 +78,8 @@ async def active_afk(message: Message) -> None:
 )
 async def handle_afk_incomming(message: Message) -> None:
     """handle incomming messages when you afk"""
+    if not message.from_user:
+        return
     user_id = message.from_user.id
     chat = message.chat
     user_dict = await message.client.get_user_dict(user_id)
@@ -89,8 +89,8 @@ async def handle_afk_incomming(message: Message) -> None:
         if not (USERS[user_id][0] + USERS[user_id][1]) % randint(2, 4):
             if REASON:
                 out_str = (
-                    f"Gua Lagi AFK.\n **Karena**: <code>{REASON}</code>\n\n"
-                    f"Terakhir Dilihat: `{afk_time} ago`"
+                    f"Saya sedang **AFK**.\nAlasan: <code>{REASON}</code>\n"
+                    f"Sejak: `{afk_time} ago`"
                 )
             else:
                 out_str = choice(AFK_REASONS)
@@ -102,8 +102,8 @@ async def handle_afk_incomming(message: Message) -> None:
     else:
         if REASON:
             out_str = (
-                f"Gua Lagi AFK.\n **Karena**: <code>{REASON}</code>\n\n"
-                f"Terakhir Dilihat: `{afk_time} ago`"
+                f"Saya sedang **AFK**.\nAlasan: <code>{REASON}</code>\n"
+                f"Terakhir dilihat: `{afk_time} `"
             )
         else:
             out_str = choice(AFK_REASONS)
@@ -143,13 +143,13 @@ async def handle_afk_incomming(message: Message) -> None:
     await asyncio.gather(*coro_list)
 
 
-@alpha.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
+@petercord.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
 async def handle_afk_outgoing(message: Message) -> None:
     """handle outgoing messages when you afk"""
     global IS_AFK  # pylint: disable=global-statement
     IS_AFK = False
     afk_time = time_formatter(round(time.time() - TIME))
-    replied: Message = await message.reply("`Kembali Online 😈`", log=__name__)
+    replied: Message = await message.reply("`I'm no longer AFK!`", log=__name__)
     coro_list = []
     if USERS:
         p_msg = ""
@@ -158,10 +158,10 @@ async def handle_afk_outgoing(message: Message) -> None:
         g_count = 0
         for pcount, gcount, men in USERS.values():
             if pcount:
-                p_msg += f"😈 {men} 💌 **{pcount}**\n"
+                p_msg += f"👤 {men} ✉️ **{pcount}**\n"
                 p_count += pcount
             if gcount:
-                g_msg += f"😈 {men} 💌 **{gcount}**\n"
+                g_msg += f"👥 {men} ✉️ **{gcount}**\n"
                 g_count += gcount
         coro_list.append(
             replied.edit(
@@ -195,9 +195,9 @@ async def handle_afk_outgoing(message: Message) -> None:
 
 
 AFK_REASONS = (
-    "Lagi Sibuk Gua!",
-    "Gua Lagi Afk Karen Sibuk,.: \
-`Tunggu Sampai Kembali Online`",
+    "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
+    "I'm away right now. If you need anything, leave a message after the beep: \
+`beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep!`",
     "You missed me, next time aim better.",
     "I'll be back in a few minutes and if I'm not...,\nwait longer.",
     "I'm not here right now, so I'm probably somewhere else.",
