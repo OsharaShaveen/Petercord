@@ -60,13 +60,6 @@ async def alive(message: Message):
         await _send_alive(message, alive_text, markup)
 
 
-def _get_mode() -> str:
-    if petercord.dual_mode:
-        return "Dual"
-    if Config.BOT_TOKEN:
-        return "Bot"
-    return "User"
-
 
 def _get_alive_text_and_markup(
     message: Message,
@@ -76,7 +69,6 @@ def _get_alive_text_and_markup(
 **╭━─━─━─━─━─━─━─━─━╮**\n
 **☉ ⏱️  Uptime :** `{petercord.uptime}`
 **☉ 🚀  Version :** `{get_version()}`
-**☉ 🛩  Mode :** `{_get_mode().upper()}`
 **☉ 👥  Sudo :** `{_parse_arg(Config.SUDO_ENABLED)}`
 **☉ 🚨  Pm-Guard :** `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
 **☉ 🌬  Anti-Spam :** `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
