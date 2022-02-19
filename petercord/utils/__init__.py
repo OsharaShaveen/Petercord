@@ -21,6 +21,8 @@ from .tools import (
     parse_buttons,
     post_to_telegraph,
     runcmd,
+    demojify,
+    get_file_id_of_media,
     safe_filename,
     sublists,
     take_screen_shot,
