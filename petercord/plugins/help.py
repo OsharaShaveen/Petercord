@@ -449,3 +449,23 @@ if petercord.has_bot:
                         reply_markup=InlineKeyboardMarkup(owner),
                     )
                 )
+
+
+
+
+
+
+@petercord.on_cmd("helpme", about={'header': "Guide to use PETERCORD commands"}, allow_channels=False)
+async def helpme(message: Message) -> None:  # pylint: disable=missing-function-docstring
+    if bot:
+        starkbot = await petercord.bot.get_me()
+        bot_username = starkbot.username
+        try:
+            nice = await client.get_inline_bot_results(bot=bot_username, query="helpme")
+            await client.send_inline_bot_result(
+                message.chat.id, nice.query_id, nice.results[0].id, hide_via=True
+            )
+    except BaseException as e::
+        return await message.edit(
+            "`Anda tidak dapat mengirim hasil sebaris dalam obrolan ini (disebabkan oleh SendInlineBotResultRequest)`"
+        )
