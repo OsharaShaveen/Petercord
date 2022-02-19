@@ -154,7 +154,7 @@ async def pmguard(message: Message):
     "setpmmsg",
     about={
         "header": "Sets the reply message",
-        "description": "You can change the default message which userge gives on un-invited PMs",
+        "description": "You can change the default message which Petercord gives on un-invited PMs",
         "flags": {"-r": "reset to default"},
         "options": {
             "{fname}": "add first name",
@@ -287,7 +287,7 @@ async def uninvitedPmHandler(message: Message):
         PMPERMIT_MSG[message.from_user.id] = (
             await message.reply(
                 noPmMessage.format_map(SafeDict(**user_dict))
-                + "\n`- Protected by Leo's Assistant`"
+                + "\n`- Protected by Petercord-X`"
             )
         ).message_id
         await asyncio.sleep(1)
