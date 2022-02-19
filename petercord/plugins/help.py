@@ -427,28 +427,18 @@ if petercord.has_bot:
 
 
     @petercord.bot.on_inline_query()
-    async def inline_answer(_, inline_query: InlineQuery):
-        results = []
-        i_q = inline_query.query
-        string = i_q.lower()  # All lower
-        str_x = i_q.split(" ", 2)  # trigger @username Text
-        str_y = i_q.split(" ", 1)  # trigger and Text
-        string_split = string.split()  # All lower and Split each word
-        iq_user_id = inline_query.from_user.id
-        if (
-            (iq_user_id in Config.OWNER_ID)
-            or (iq_user_id in Config.SUDO_USERS)
-            and Config.SUDO_ENABLED
-        ):
-
-            if string.startswith("helpme"):
-                owner = main_menu_buttons()
-                results.append(
-                    InlineQueryResultArticle(
-                        title="Menu Help Petercord-X",
-                        reply_markup=InlineKeyboardMarkup(owner),
-                    )
-                )
+    async def owo(client, inline_query: InlineQuery):
+    results = []
+    string_given = inline_query.query.lower()
+    if string_given.startswith("helpme"):
+        if ";" not in string_given:
+            return
+        await client.answer_inline_query(
+            InlineQueryResultArticle(
+                title="Menu Help Petercord-X",
+                reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
+            )
+        )
 
 
 
