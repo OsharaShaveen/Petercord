@@ -465,7 +465,7 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
             await client.send_inline_bot_result(
                 message.chat.id, nice.query_id, nice.results[0].id, hide_via=True
             )
-    except BaseException as e::
-        return await message.edit(
-            "`Anda tidak dapat mengirim hasil sebaris dalam obrolan ini (disebabkan oleh SendInlineBotResultRequest)`"
-        )
+        except BaseException as e::
+            return await message.edit(
+                "`Anda tidak dapat mengirim hasil sebaris dalam obrolan ini (disebabkan oleh SendInlineBotResultRequest)`"
+            )
