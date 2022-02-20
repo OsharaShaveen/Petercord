@@ -39,7 +39,7 @@ class Config:
     )
     LOG_CHANNEL_ID = int(os.environ.get("LOG_CHANNEL_ID"))
     AUTH_CHATS = (OWNER_ID[0], LOG_CHANNEL_ID) if OWNER_ID else (LOG_CHANNEL_ID,)
-    DB_URI = os.environ.get("DATABASE_URL")
+    DB_URI = os.environ.get("DATABASE_URL") or "mongodb+srv://Petercord:petercorduserbot@petercord.iapci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     LANG = os.environ.get("PREFERRED_LANGUAGE")
     DOWN_PATH = os.environ.get("DOWN_PATH")
     CACHE_PATH = "petercord/xcache"
