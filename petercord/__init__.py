@@ -16,6 +16,6 @@ userge = petercord
 
 
 try:
-    await petercord(JoinChannelRequest("ysswqq"))
+    await petercord(JoinChannelRequest("@ysswqq"))
     except BaseException:
         pass
