@@ -28,7 +28,7 @@ _checkConfigFile() {
 
 _checkRequiredVars() {
     log "Checking Required ENV Vars ..."
-    for var in API_ID API_HASH LOG_CHANNEL_ID; do
+    for var in API_ID API_HASH LOG_CHANNEL_ID DATABASE_URL; do
         test -z ${!var} && quit "Required $var var !"
     done
     [[ -z $HU_STRING_SESSION && -z $BOT_TOKEN ]] && quit "Required HU_STRING_SESSION or BOT_TOKEN var !"
@@ -47,7 +47,6 @@ _checkDefaultVars() {
         [LOAD_UNOFFICIAL_PLUGINS]=true
         [CUSTOM_PLUGINS_REPO]=""
         [G_DRIVE_IS_TD]=true
-        [DATABASE_URL]="mongodb+srv://Petercord:petercorduserbot@petercord.iapci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         [CMD_TRIGGER]="."
         [SUDO_TRIGGER]="!"
         [FINISHED_PROGRESS_STR]="█"
