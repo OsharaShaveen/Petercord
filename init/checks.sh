@@ -28,7 +28,7 @@ _checkConfigFile() {
 
 _checkRequiredVars() {
     log "Checking Required ENV Vars ..."
-    for var in API_ID API_HASH LOG_CHANNEL_ID DATABASE_URL; do
+    for var in API_ID API_HASH LOG_CHANNEL_ID; do
         test -z ${!var} && quit "Required $var var !"
     done
     [[ -z $HU_STRING_SESSION && -z $BOT_TOKEN ]] && quit "Required HU_STRING_SESSION or BOT_TOKEN var !"
