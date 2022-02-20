@@ -10,11 +10,11 @@ from petercord.utils import progress
 _T_LIMIT = 5242880
 
 
-@petercord.on_cmd("tg t", about={
+@petercord.on_cmd("tg m", about={
     'header': "Upload file to Telegra.ph's servers",
     'types': ['.jpg', '.jpeg', '.png', '.gif', '.mp4', '.webp', '.html', '.txt', '.py'],
-    'usage': "reply {tr}telegraph to media or text : limit 5MB for media",
-    'examples': "reply {tr}telegraph to `header|content`\n(You can use html code)"})
+    'usage': "reply {tr}tg m to media or text : limit 5MB for media",
+    'examples': "reply {tr}tg m to `header|content`\n(You can use html code)"})
 async def telegraph_(message: Message):
     replied = message.reply_to_message
     if not replied:
@@ -80,6 +80,6 @@ async def telegraph_(message: Message):
     except Exception as t_e:
         await message.err(t_e)
     else:
-        await message.edit(f"**[DATA TELEGRAPHMU ..KLIK](https://telegra.ph{response[0]})**")
+        await message.edit(f"**[Click Here](https://telegra.ph{response[0]})**")
     finally:
         os.remove(dl_loc)
