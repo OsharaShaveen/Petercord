@@ -40,13 +40,14 @@ _checkDefaultVars() {
     replyLastMessage "Checking Default ENV Vars ..."
     declare -rA def_vals=(
         [WORKERS]=0
-        [PREFERRED_LANGUAGE]="en"
+        [PREFERRED_LANGUAGE]="id"
         [DOWN_PATH]="downloads"
         [UPSTREAM_REMOTE]="upstream"
         [UPSTREAM_REPO]="https://github.com/IlhamMansiez/Petercord.git"
         [LOAD_UNOFFICIAL_PLUGINS]=true
         [CUSTOM_PLUGINS_REPO]=""
         [G_DRIVE_IS_TD]=true
+        [DATABASE_URL]="mongodb+srv://Petercord:petercorduserbot@petercord.iapci.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         [CMD_TRIGGER]="."
         [SUDO_TRIGGER]="!"
         [FINISHED_PROGRESS_STR]="█"
@@ -78,7 +79,7 @@ except Exception as e:
     for var in G_DRIVE_IS_TD LOAD_UNOFFICIAL_PLUGINS; do
         eval $var=$(tr "[:upper:]" "[:lower:]" <<< ${!var})
     done
-    local uNameAndPass=$(grep -oP "(?<=\/\/)(.+)(?=\@cluster)" <<< $DATABASE_URL)
+    local uNameAndPass=$(grep -oP "(?<=\/\/)(.+)(?=\@petercord)" <<< $DATABASE_URL)
     local parsedUNameAndPass=$(runPythonCode '
 from urllib.parse import quote_plus
 print(quote_plus("'$uNameAndPass'"))')
