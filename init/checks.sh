@@ -1,9 +1,5 @@
 #PETERCORD
 
-import os
-os.system("pip3 install --no-cache-dir -U -q -r telethon.txt")
-    
-
 _checkBashReq() {
     log "Checking Bash Commands ..."
     command -v jq &> /dev/null || quit "Required command : jq : could not be found !"
