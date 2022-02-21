@@ -1,1 +1,6 @@
 Telethon==1.24.0
+beautifulsoup4>=4.9.1
+ruamel.yaml==0.16.13
+feedparser>=6.0.2
+rarfile>=4.0
+dnspython>=2.0.0
