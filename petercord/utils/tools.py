@@ -5,10 +5,9 @@ import os
 import re
 from typing import List, Optional, Tuple
 import asyncio
-import importlib
 import shlex
-from os.path import basename, join, exists
-from typing import Tuple, List, Optional, Iterator, Union
+from os.path import basename
+from typing import List, Optional, Tuple
 from html_telegraph_poster import TelegraphPoster
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from ujson import loads

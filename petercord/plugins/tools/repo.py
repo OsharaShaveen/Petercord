@@ -1,6 +1,6 @@
 # petercord
 
-from petercord import petercord, Message, Config, versions
+from petercord import Config, Message, petercord
 
 
 @petercord.on_cmd("repo", about={'header': "get repo link and details"})

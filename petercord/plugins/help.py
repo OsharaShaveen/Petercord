@@ -428,7 +428,6 @@ if petercord.has_bot:
 
     @petercord.bot.on_inline_query()
     async def owo(client, inline_query: InlineQuery):
-        results = []
         string_given = inline_query.query.lower()
         if string_given.startswith("helpme"):
             if ";" not in string_given:
