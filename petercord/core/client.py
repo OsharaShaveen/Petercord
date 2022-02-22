@@ -131,6 +131,10 @@ class Petercord(_AbstractPetercord):
         super().__init__(**kwargs)
         self.executor.shutdown()
         self.executor = pool._get()  # pylint: disable=protected-access
+    
+    @property
+    def dual_mode(self) -> bool:
+        return RawClient.DUAL_MODE
 
     @property
     def bot(self) -> Union['PetercordBot', 'Petercord']:
@@ -146,14 +150,14 @@ class Petercord(_AbstractPetercord):
         _LOG.info(_LOG_STR, "Starting Petercord-X")
         await super().start()
         if self._bot is not None:
-            _LOG.info(_LOG_STR, "Starting X-Bot")
+            _LOG.info(_LOG_STR, "Starting Asisten-Bot")
             await self._bot.start()
         await self._load_plugins()
 
     async def stop(self) -> None:  # pylint: disable=arguments-differ
         """ stop client and bot """
         if self._bot is not None:
-            _LOG.info(_LOG_STR, "Stopping X-Bot")
+            _LOG.info(_LOG_STR, "Stopping Asisten-Bot")
             await self._bot.stop()
         _LOG.info(_LOG_STR, "Stopping Petercord-X")
         await super().stop()
@@ -182,7 +186,7 @@ class Petercord(_AbstractPetercord):
 
         async def _shutdown(_sig: signal.Signals) -> None:
             global _SEND_SIGNAL  # pylint: disable=global-statement
-            _LOG.info(_LOG_STR, f"Received Stop Signal [{_sig.name}], Exiting Petercord-X ...")
+            _LOG.info(_LOG_STR, f"Received Stop Signal [{_sig.name}], Exiting Petercord-X Gagal Membuka ...")
             await _finalize()
             if _sig == _sig.SIGUSR1:
                 _SEND_SIGNAL = True
