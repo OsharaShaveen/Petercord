@@ -12,7 +12,7 @@ This is a userbot made for telegram. I made this userbot with help of all other 
 <details>
 
   <summary> • FOR ANY QUERY • </summary>
-<h2 align="center"> <a href="https://t.me/TEAMSquadUserbotSupport">‼️JOIN PETERCORDBOT SUPPORT‼️</a></h2>
+<h2 align="center"> <a href="https://t.me/TEAMSquadUserbotSupport">‼️JOIN PETERCORD-X SUPPORT‼️</a></h2>
 
 </details>
 
