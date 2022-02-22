@@ -1,6 +1,6 @@
 
 
-# 𝚃𝙷𝙴 PETERCORDBOT
+# 𝚃𝙷𝙴 Petercord-X
 This is a userbot made for telegram. I made this userbot with help of all other userbots available in telegram. All credits TeamUserge Thnks
 
 [![PETERCOEDBOT LOGO](https://telegra.ph/file/b52e42266a323cbe9f849.jpg)](https://t.me/REBELBOT_SUPPORT)
