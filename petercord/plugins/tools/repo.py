@@ -7,10 +7,8 @@ from petercord import petercord, Message, Config, versions
 async def see_repo(message: Message):
     """see repo"""
     output = f"""
-   Petercord-X
+   Petercord-X\n
 • **VERSION** : `3.03`
-• **LICENSE** : {versions.__license__}
-• **COPYRIGHT** : {versions.__copyright__}
 • **REPO** : [Click here]({Config.UPSTREAM_REPO})
 """
     await message.edit(output)
