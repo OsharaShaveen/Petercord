@@ -89,15 +89,15 @@ def _get_alive_text_and_markup(
 \n**╰━─━─━─━─━─━─━─━─━╯**"""
     if not message.client.is_bot:
         output += f"""\n
-🎖 **{versions.__license__}** | 👾 **{versions.__copyright__}** | 🧪 **[Repo]({Config.UPSTREAM_REPO})**
+🚀 **{versions.__license__}**
 """
     else:
-        copy_ = "https://github.com/ilhammansiez/Petercord/blob/alpha/LICENSE"
+        copy_ = "https://github.com/ilhammansiez/Petercord/blob/petercord/LICENSE"
         markup = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="📊 Github", url="https://github.com/AftahBagas"
+                        text="📊 Github", url="https://github.com/ilhammansiez/Petercord"
                     ),
                     InlineKeyboardButton(text="✅ Repo", url=Config.UPSTREAM_REPO),
                 ],
