@@ -57,9 +57,9 @@ async def check_update(message: Message):
             await message.edit(f'`New update found for [{branch}], Now pulling...`')
             await _pull_from_repo(repo, branch)
             await CHANNEL.log(f"**PULLED update from [{branch}]:\n\n📄 CHANGELOG 📄**\n\n{out}")
-            await message.edit('**Userge Successfully Updated!**\n'
+            await message.edit('**Petercord-X Successfully Updated!**\n'
                                '`Now restarting... Wait for a while!`', del_in=3)
-            asyncio.get_event_loop().create_task(userge.restart(True))
+            asyncio.get_event_loop().create_task(petercord.restart(True))
         else:
             active = repo.active_branch.name
             if active == branch:
