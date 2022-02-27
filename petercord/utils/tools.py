@@ -1,4 +1,9 @@
-# petercord
+# Copyright (C) 2020-2022 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
+#
+# This file is part of < https://github.com/UsergeTeam/Userge > project,
+# and is released under the "GNU v3.0 License Agreement".
+# Please see < https://github.com/UsergeTeam/Userge/blob/master/LICENSE >
+# Import Petercord-X
 
 import asyncio
 import os
@@ -6,7 +11,7 @@ import re
 from typing import List, Optional, Tuple
 import asyncio
 import shlex
-from os.path import basename
+from os.path import basename, join, exists
 from typing import Tuple, List, Optional, Iterator, Union
 from emoji import get_emoji_regexp
 from html_telegraph_poster import TelegraphPoster
