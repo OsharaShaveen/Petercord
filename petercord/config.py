@@ -51,6 +51,7 @@ class Config:
     ALIVE_MEDIA = os.environ.get("ALIVE_MEDIA")
     CUSTOM_PACK_NAME = os.environ.get("CUSTOM_PACK_NAME")
     INSTA_ID = os.environ.get("INSTA_ID")
+    MAX_DURATION = int(os.environ.get("MAX_DURATION", 900))
     INSTA_PASS = os.environ.get("INSTA_PASS")
     UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO")
     UPSTREAM_REMOTE = os.environ.get("UPSTREAM_REMOTE")
