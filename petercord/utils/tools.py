@@ -6,7 +6,7 @@ import re
 from typing import List, Optional, Tuple
 import asyncio
 import shlex
-from os.path import basename, join, exists
+from os.path import basename
 from typing import Tuple, List, Optional, Iterator, Union
 from emoji import get_emoji_regexp
 from html_telegraph_poster import TelegraphPoster
