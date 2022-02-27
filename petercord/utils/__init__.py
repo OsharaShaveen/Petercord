@@ -24,6 +24,8 @@ from .tools import (
     demojify,
     get_file_id_of_media,
     safe_filename,
+    import_ytdl,
+    is_url,
     sublists,
     take_screen_shot,
     time_formatter,
