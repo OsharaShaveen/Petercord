@@ -6,25 +6,98 @@ import re
 from typing import List, Optional, Tuple
 import asyncio
 import shlex
-from os.path import basename
-from typing import List, Optional, Tuple
+from os.path import basename, join, exists
+from typing import Tuple, List, Optional, Iterator, Union
+from emoji import get_emoji_regexp
 from html_telegraph_poster import TelegraphPoster
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from ujson import loads
-
+import importlib
 import petercord
+userge = petercord
 
 _LOG = petercord.logging.getLogger(__name__)
 
 _BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)]\[buttonurl:(?:/{0,2})(.+?)(:same)?])")
 
+_PTN_SPLIT = re.compile(r'(\.\d+|\.|\d+)')
+
+
+def import_ytdl():
+    """ import youtube_dl dynamically """
+    req_module = os.environ.get("YOUTUBE_DL_PATH", "youtube_dl")
+    try:
+        return importlib.import_module(req_module)
+    except ModuleNotFoundError:
+        _LOG.warning(f"please fix your requirements.txt file [{req_module}]")
+        raise
+
+def is_url(url: str) -> bool:
+    return bool(re.match(r"(?:https?|ftp)://[^|\s]+\.[^|\s]+", url))
+
+
+def sort_file_name_key(file_name: str) -> tuple:
+    """ sort key for file names """
+    if not isinstance(file_name, str):
+        file_name = str(file_name)
+    return tuple(_sort_algo(_PTN_SPLIT.split(file_name.lower())))
+
+# this algo doesn't support signed values
+def _sort_algo(data: List[str]) -> Iterator[Union[str, float]]:
+    """ sort algo for file names """
+    p1 = 0.0
+    for p2 in data:
+        # skipping null values
+        if not p2:
+            continue
+
+        # first letter of the part
+        c = p2[0]
+
+        # checking c is a digit or not
+        # if yes, p2 should not contain any non digits
+        if c.isdigit():
+            # p2 should be [0-9]+
+            # so c should be 0-9
+            if c == '0':
+                # add padding
+                # this fixes `a1` and `a01` messing
+                if isinstance(p1, str):
+                    yield 0.0
+                yield c
+
+            # converting to float
+            p2 = float(p2)
+
+            # add padding
+            if isinstance(p1, float):
+                yield ''
+
+        # checking p2 is `.[0-9]+` or not
+        elif c == '.' and len(p2) > 1 and p2[1].isdigit():
+            # p2 should be `.[0-9]+`
+            # so converting to float
+            p2 = float(p2)
+
+            # add padding
+            if isinstance(p1, str):
+                yield 0.0
+            yield c
+
+        # add padding if previous and current both are strings
+        if isinstance(p1, str) and isinstance(p2, str):
+            yield 0.0
+
+        yield p2
+        # saving current value for later use
+        p1 = p2
 
 def demojify(string: str) -> str:
     """ Remove emojis and other non-safe characters from string """
     return get_emoji_regexp().sub(u'', string)
 
 
-def get_file_id_of_media(message: 'userge.Message') -> Optional[str]:
+def get_file_id_of_media(message: 'petercord.Message') -> Optional[str]:
     """ get file_id """
     file_ = message.audio or message.animation or message.photo \
         or message.sticker or message.voice or message.video_note \
@@ -182,3 +255,6 @@ def clean_obj(obj, convert: bool = False):
     if isinstance(obj, dict):
         return {key: clean_obj(value) for key, value in obj.items() if key != "_"}
     return obj
+
+
+
