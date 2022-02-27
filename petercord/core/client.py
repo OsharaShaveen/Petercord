@@ -168,7 +168,7 @@ class Petercord(_AbstractPetercord):
     has_bot = bool(Config.BOT_TOKEN)
 
     def __init__(self, **kwargs) -> None:
-        _LOG.info(_LOG_STR, "Setting Petercord Configs")
+        _LOG.info(_LOG_STR, "Setting Petercord-X Configs")
         kwargs = {
             'api_id': Config.API_ID,
             'api_hash': Config.API_HASH,
@@ -203,7 +203,7 @@ class Petercord(_AbstractPetercord):
 
         while await _is_running():
             _LOG.info(_LOG_STR, "Waiting for the Termination of "
-                                f"previous Userge instance ... [{timeout} sec]")
+                                f"previous Petercord-X instance ... [{timeout} sec]")
             time.sleep(timeout)
 
             counter += timeout
@@ -272,7 +272,7 @@ class Petercord(_AbstractPetercord):
         for task in self._tasks:
             running_tasks.append(self.loop.create_task(task()))
 
-        logbot.edit_last_msg("Userge has Started Successfully !")
+        logbot.edit_last_msg("Petercord-X Started Successfully !")
         logbot.end()
         mode = "[DUAL]" if RawClient.DUAL_MODE else "[BOT]" if Config.BOT_TOKEN else "[USER]"
 
@@ -281,7 +281,7 @@ class Petercord(_AbstractPetercord):
                 _LOG.info(_LOG_STR, f"Running Coroutine - {mode}")
                 self.loop.run_until_complete(coro)
             else:
-                _LOG.info(_LOG_STR, f"Idling Userge - {mode}")
+                _LOG.info(_LOG_STR, f"Idling Petercord-X - {mode}")
                 idle()
             self.loop.run_until_complete(_finalize())
         except (asyncio.exceptions.CancelledError, RuntimeError):
