@@ -13,7 +13,7 @@ import aiofiles
 import aiohttp
 from aiohttp import client_exceptions
 
-from petercord import petercord, userge, Message, Config
+from petercord import Config, Message, petercord
 
 
 class PasteService:
