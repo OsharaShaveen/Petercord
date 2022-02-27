@@ -56,7 +56,7 @@ from pytgcalls.types.input_stream import (
     VideoParameters
 )
 
-from petercord import petercord, userge, Message, pool, filters, get_collection, Config
+from petercord import petercord, Message, pool, filters, get_collection, Config
 from petercord.utils import time_formatter, import_ytdl, progress, runcmd, is_url
 from petercord.utils.exceptions import StopConversation
 
@@ -65,7 +65,7 @@ petercord.__class__.__module__ = 'pyrogram.client'
 call = PyTgCalls(petercord, overload_quiet_mode=True)
 call._env_checker.check_environment()  # pylint: disable=protected-access
 
-
+userge = petercord
 CHANNEL = petercord.getCLogger(__name__)
 LOG = userge.getLogger()
 
