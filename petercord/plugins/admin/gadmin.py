@@ -450,48 +450,34 @@ async def unmute_usr(message: Message):
         await message.edit(f"`something went wrong!` 🤔\n\n**ERROR:** `{e_f}`", del_in=5)
 
 
-@petercord.on_cmd(
-    "zombies",
-    about={
-        "header": "use this to clean zombie accounts",
-        "description": "check & remove zombie (deleted) accounts from supergroup.\n"
-        "[NOTE: Requires proper admin rights in the chat!!!]",
-        "flags": {"-c": "clean"},
-        "examples": [
-            "{tr}zombies [check deleted accounts in group]",
-            "{tr}zombies -c [remove deleted accounts from group]",
-        ],
-    },
-    allow_channels=False,
-    allow_bots=False,
-    allow_private=False,
-)
+@petercord.on_cmd("zombies", about={
+    'header': "use this to clean zombie accounts",
+    'description': "check & remove zombie (deleted) accounts from supergroup.\n"
+                   "[NOTE: Requires proper admin rights in the chat!!!]",
+    'flags': {'-c': "clean"},
+    'examples': [
+        "{tr}zombies [check deleted accounts in group]",
+        "{tr}zombies -c [remove deleted accounts from group]"]},
+    allow_channels=False, allow_bots=False, allow_private=False)
 async def zombie_clean(message: Message):
-    """remove deleted accounts from tg group"""
+    """ remove deleted accounts from tg group """
     chat_id = message.chat.id
+    check_user = await message.client.get_chat_member(message.chat.id, message.from_user.id)
     flags = message.flags
-    rm_delaccs = "-c" in flags
-    can_clean = bool(
-        not message.from_user
-        or message.from_user
-        and (
-            await message.client.get_chat_member(message.chat.id, message.from_user.id)
-        ).status
-        in ("administrator", "creator")
-    )
+    rm_delaccs = '-c' in flags
+    can_clean = check_user.status in ("administrator", "creator")
     if rm_delaccs:
         del_users = 0
         del_admins = 0
         del_total = 0
-        del_stats = r"`Zero zombie accounts found in this chat... WOOHOO group is clean.. \^o^/`"
         if can_clean:
             await message.edit("`Hang on!! cleaning zombie accounts from this chat..`")
             async for member in message.client.iter_chat_members(chat_id):
                 if member.user.is_deleted:
                     try:
-                        await message.client.kick_chat_member(
-                            chat_id, member.user.id, int(time.time() + 45)
-                        )
+                        await message.client.ban_chat_member(
+                            chat_id,
+                            member.user.id, int(time.time() + 45))
                     except UserAdminInvalid:
                         del_users -= 1
                         del_admins += 1
@@ -512,12 +498,9 @@ async def zombie_clean(message: Message):
                 f"CHAT: `{message.chat.title}` (`{chat_id}`)\n"
                 f"TOTAL ZOMBIE COUNT: `{del_total}`\n"
                 f"CLEANED ZOMBIE COUNT: `{del_users}`\n"
-                f"ZOMBIE ADMIN COUNT: `{del_admins}`"
-            )
+                f"ZOMBIE ADMIN COUNT: `{del_admins}`")
         else:
-            await message.edit(
-                r"`i don't have proper permission to do that! (* ￣︿￣)`", del_in=5
-            )
+            await message.err(r"i don't have proper permission to do that! (* ￣︿￣)")
     else:
         del_users = 0
         del_stats = r"`Zero zombie accounts found in this chat... WOOHOO group is clean.. \^o^/`"
@@ -528,20 +511,17 @@ async def zombie_clean(message: Message):
         if del_users > 0:
             del_stats = f"`Found` **{del_users}** `zombie accounts in this chat.`"
             await message.edit(
-                f"🕵️‍♂️ {del_stats} `you can clean them using .zombies -c`", del_in=5
-            )
+                f"🕵️‍♂️ {del_stats} `you can clean them using .zombies -c`", del_in=5)
             await CHANNEL.log(
                 "#ZOMBIE_CHECK\n\n"
                 f"CHAT: `{message.chat.title}` (`{chat_id}`)\n"
-                f"ZOMBIE COUNT: `{del_users}`"
-            )
+                f"ZOMBIE COUNT: `{del_users}`")
         else:
             await message.edit(f"{del_stats}", del_in=5)
             await CHANNEL.log(
                 "#ZOMBIE_CHECK\n\n"
                 f"CHAT: `{message.chat.title}` (`{chat_id}`)\n"
-                r"ZOMBIE COUNT: `WOOHOO group is clean.. \^o^/`"
-            )
+                r"ZOMBIE COUNT: `WOOHOO group is clean.. \^o^/`")
 
 
 def chat_name_(msg: Message):
