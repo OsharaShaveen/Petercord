@@ -45,6 +45,7 @@ class Config:
     CACHE_PATH = "petercord/xcache"
     CMD_TRIGGER = os.environ.get("CMD_TRIGGER")
     SUDO_TRIGGER = os.environ.get("SUDO_TRIGGER")
+    PUBLIC_TRIGGER = '/'
     FINISHED_PROGRESS_STR = os.environ.get("FINISHED_PROGRESS_STR")
     UNFINISHED_PROGRESS_STR = os.environ.get("UNFINISHED_PROGRESS_STR")
     ALIVE_MEDIA = os.environ.get("ALIVE_MEDIA")
