@@ -16,7 +16,7 @@ from typing import List, Awaitable, Any, Optional, Union
 from pyrogram import idle, types
 from pyrogram.methods import Methods as RawMethods
 
-from petercord import logging, Config, logbot
+from petercord import logging, Config, logbot, get_version
 from petercord.plugins import get_all_plugins
 from petercord.utils import time_formatter
 from petercord.utils.exceptions import PetercordBotNotFound
@@ -149,6 +149,17 @@ class _AbstractPetercord(Methods, RawClient):
     def __hash__(self) -> int:  # pylint: disable=W0235
         return super().__hash__()
 
+ON = f"""
+👥 **Petercord-X Aktif**
+•••••••••••
+💻 **Version -** `{get_version()}`
+
+❗Sebaiknya Anda jangan keluar grup ini agar bot tidak mati
+ ....Terimakasih....🇮🇩
+❗You should not leave this group so that the bot does not die
+ ....Thank You....🇺🇸
+•••••••••••
+"""
 
 class PetercordBot(_AbstractPetercord):
     """ UsergeBot, the bot """
@@ -271,7 +282,7 @@ class Petercord(_AbstractPetercord):
 
         for task in self._tasks:
             running_tasks.append(self.loop.create_task(task()))
-
+         _LOG.info(_LOG_STR, ON)
         logbot.edit_last_msg("Petercord-X Started Successfully !")
         logbot.end()
         mode = "[DUAL]" if RawClient.DUAL_MODE else "[BOT]" if Config.BOT_TOKEN else "[USER]"
