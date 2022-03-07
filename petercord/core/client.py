@@ -282,7 +282,7 @@ class Petercord(_AbstractPetercord):
 
         for task in self._tasks:
             running_tasks.append(self.loop.create_task(task()))
-         _LOG.info(_LOG_STR, "👥 **Petercord-X Aktif**\n•••••••••••\n💻 **Version -** `{get_version()}`\n\n❗Sebaiknya Anda jangan keluar grup ini agar bot tidak mati\n....Terimakasih....🇮🇩\n❗You should not leave this group so that the bot does not die\n....Thank You....🇺🇸\n•••••••••••")
+         _LOG.info(_LOG_STR, f"👥 **Petercord-X Aktif**\n•••••••••••\n💻 **Version -** `{get_version()}`\n\n❗Sebaiknya Anda jangan keluar grup ini agar bot tidak mati\n....Terimakasih....🇮🇩\n❗You should not leave this group so that the bot does not die\n....Thank You....🇺🇸\n•••••••••••")
         logbot.edit_last_msg("Petercord-X Started Successfully !")
         logbot.end()
         mode = "[DUAL]" if RawClient.DUAL_MODE else "[BOT]" if Config.BOT_TOKEN else "[USER]"
