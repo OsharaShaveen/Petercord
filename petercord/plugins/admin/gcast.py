@@ -2,12 +2,7 @@
 
 from pyrogram.errors import (
     FloodWait,
-    PeerIdInvalid,
-    UserAdminInvalid,
-    UserIdInvalid,
-    UsernameInvalid,
 )
-from pyrogram.types import ChatPermissions
 
 from petercord import Message, petercord
 
