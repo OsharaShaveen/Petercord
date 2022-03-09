@@ -34,7 +34,7 @@ async def gcast(message: Message):
             chat = x.id
             if chat not in Gblacklist:
                 try:
-                    await petercord..send_message(chat, msg)
+                    await petercord.send_message(chat, msg)
                     await asyncio.sleep(0.1)
                     done += 1
                 except FloodWait as anj:
