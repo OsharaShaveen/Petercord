@@ -30,7 +30,7 @@ async def gcast(message: Message):
     er = 0
     done = 0
     async for x in petercord.iter_dialogs():
-        if x.is_group:
+        if x.message.chat.id:
             chat = x.id
             if chat not in Gblacklist:
                 try:
