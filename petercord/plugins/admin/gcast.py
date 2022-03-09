@@ -1,4 +1,5 @@
 ## Ported by ilham mansiz
+## 😌😌
 
 from pyrogram.errors import (
     FloodWait,
@@ -13,15 +14,15 @@ Gblacklist = [-1001159103924, -1001718757023]
 
 
 
-@petercord.on_cmd("join", about={
-    'header': "Join chat",
+@petercord.on_cmd("gcast", about={
+    'header': "gcast chat",
     'petercord': "{tr}gcast text",
     'examples': "{tr}gcast"})
 async def gcast(message: Message):
-    xx = message.reply_to_message
+    xx = message.text
     if xx:
         msg = xx
-    elif message.is_reply:
+    elif message.reply_to_message:
         msg = await petercord.get_reply_message()
     else:
         return await message.edit("**Berikan Sebuah Pesan atau Reply**")
