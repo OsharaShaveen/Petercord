@@ -347,9 +347,7 @@ if petercord.has_bot:
                 url="https://github.com/IlhamMansiez/Petercord",
                 description="Setup Your Own",
                 thumb_url="https://imgur.com/gallery/ieSTXbM",
-                reply_markup=InlineKeyboardMarkup(main_menu_buttons())
-            )
-        )
+                reply_markup=InlineKeyboardMarkup(main_menu_buttons())))
 
         if inline_query.from_user and inline_query.from_user.id in Config.OWNER_ID:
             results.append(
@@ -362,21 +360,7 @@ if petercord.has_bot:
                     url="https://github.com/IlhamMansiez/Petercord",
                     description="Petercord Main Menu",
                     thumb_url="https://imgur.com/gallery/ieSTXbM",
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton(
-                                    "Repo",
-                                    url="https://github.com/IlhamMansiez/Petercord"),
-                                InlineKeyboardButton(
-                                    "Deploy",
-                                    url=("https://heroku.com/deploy?template="
-                                         "https://github.com/IlhamMansiez/deploy"))
-                                ]
-                            ]
-                        )
-                    )
-                ]
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Repo", url="https://github.com/IlhamMansiez/Petercord")]]))]
             if '-' in inline_query.query:
                 _id, msg = inline_query.query.split('-', maxsplit=1)
                 if not msg:
