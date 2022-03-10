@@ -16,7 +16,7 @@ Gblacklist = [-1001159103924, -1001718757023]
 
 @petercord.on_cmd("gcast", about={
     'header': "gcast chat",
-    'petercord': "{tr}gcast text",
+    'petercord': "{tr}gcast reply tomessage ",
     'examples': "{tr}gcast"})
 async def gcast(message: Message):
     xx = message.reply_to_message
