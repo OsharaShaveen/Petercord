@@ -340,14 +340,28 @@ if petercord.has_bot:
         results = [
             InlineQueryResultArticle(
                 id=uuid4(),
-                title="Repo",
+                title="Main Menu",
                 input_message_content=InputTextMessageContent(
-                    "**Deploy Petercord-X ** 🎖"
+                    "**Petercord-X ** Main Menu"
                 ),
                 url="https://github.com/IlhamMansiez/Petercord",
                 description="Setup Your Own",
                 thumb_url="https://imgur.com/gallery/ieSTXbM",
-                reply_markup=InlineKeyboardMarkup(
+                reply_markup=InlineKeyboardMarkup(main_menu_buttons())
+            )
+        )
+        if inline_query.from_user and inline_query.from_user.id in Config.OWNER_ID:
+            results.append(
+                InlineQueryResultArticle(
+                    id=uuid4(),
+                    title="Repo",
+                    input_message_content=InputTextMessageContent(
+                        "📝 **Petercord-X Repo** 📝"
+                    ),
+                    url="https://github.com/IlhamMansiez/Petercord",
+                    description="Petercord Main Menu",
+                    thumb_url="https://imgur.com/gallery/ieSTXbM",
+                    reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
@@ -357,25 +371,11 @@ if petercord.has_bot:
                                 "Deploy",
                                 url=("https://heroku.com/deploy?template="
                                      "https://github.com/IlhamMansiez/deploy"))
+                            ]
                         ]
-                    ]
+                    )
                 )
-            )
-        ]
-        if inline_query.from_user and inline_query.from_user.id in Config.OWNER_ID:
-            results.append(
-                InlineQueryResultArticle(
-                    id=uuid4(),
-                    title="Main Menu",
-                    input_message_content=InputTextMessageContent(
-                        "📝 **Petercord-X Main Menu** 📝"
-                    ),
-                    url="https://github.com/IlhamMansiez/Petercord",
-                    description="Petercord Main Menu",
-                    thumb_url="https://imgur.com/gallery/ieSTXbM",
-                    reply_markup=InlineKeyboardMarkup(main_menu_buttons())
-                )
-            )
+            ]
             if '-' in inline_query.query:
                 _id, msg = inline_query.query.split('-', maxsplit=1)
                 if not msg:
